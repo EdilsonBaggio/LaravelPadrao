@@ -59,7 +59,7 @@ table {
 .card {
   border-color: black;
   border-width: 4px;
-  margin-top: 25%;
+  margin-top: 100px;
 }
 .card .cadastro .form-group input {
   background-color: rgb(229, 236, 231);
