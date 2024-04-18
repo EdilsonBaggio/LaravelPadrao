@@ -30,4 +30,8 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
+Route::get('/listar-usuario', function () {
+    return view('listar-usuario');
+})->name('listar');
+
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');

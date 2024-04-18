@@ -1,22 +1,17 @@
-<header>
-    <div class="content-header">
-        <div class="col">
-            <div data-aos="fade-down">
-                <img class="img-fluid" src="{{ Vite::asset('resources/images/padrao.png') }}" alt="">
-            </div>
-        </div>
-        <div class="col content-menu">
-            <ul>
-                <li>
-                    <a href="#quem">Quem Somos</a>
-                </li>
-                <li>
-                    <a href="#cases">Cases</a>
-                </li>
-                <li>
-                    <a href="#contato">Fale Conosco</a>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="">Cadastro</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('listar')}}">Listar usuario</a>
+        </li>      
     </div>
-</header>
+  </div>
+</nav>

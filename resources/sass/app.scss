@@ -12,7 +12,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
-	padding: 0;
+	padding: 0; 
 	border: 0;
 	font-size: 100%;
 	font: inherit;
@@ -26,9 +26,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 //Fontes
-@import url("https://use.typekit.net/blm1qmu.css");
-@import url("https://use.typekit.net/blm1qmu.css");
-$fontNeutronic: "neutronic", sans-serif;
+
+$fontNeon:"Tilt Neon", sans-serif; 
 $Quasimoda: "quasimoda", sans-serif;
 
 $branco: #FFFFFF;
@@ -40,10 +39,14 @@ $vermelho: #FA2626;
 $roxo: #871AE6;
 $preto: #000000;
 $vinho: #2B1705;
+$marrom: #574b4b;
+
 
 body {
 	line-height: 1;
-    background: $branco;
+    background: $marrom;
+	font-family: $fontNeon;
+	align-items: center;
 }
 ol, ul {
 	list-style: none;
@@ -63,586 +66,60 @@ table {
 .row{
 	-bs-gutter-x: 0rem;
 }
-header{
-	.content-header{
-		display: flex;
-		padding: 50px 80px;
-		background-color: $amarelo;
-		.content-menu{
-			display: flex;
-			align-items: center;
-			align-content: center;
-			ul{
-				li{
-					float: left;
-					margin-left: 120px;
-					@media screen and (max-width:1366px){
-						margin-left: 80px;
-					}
-					@media screen and (max-width:1024px){
-						margin-left: 30px;
-					}
-					@media screen and (max-width:769px){
-						margin: 15px 15px;
-					}
-					a{
-						color: $vinho;
-						font-family: $fontNeutronic;
-						font-size: 18px;
-						font-style: normal;
-						font-weight: 400;
-						line-height: normal;
-						text-decoration: none;
-					}
-				}
-			}
-		}
-		@media screen and (max-width:769px){
-			display: flex;
-			padding: 50px 0px;
-			flex-direction: column;
-			align-content: center;
-			align-items: center;
-		}
-	}
-}
-.content-top{
-	background-color: $amarelo;
-	@media screen and (max-width: 769px){
-		.col-md-6{
-			width: 100%;
-		}
-	}
-	.content-banner{
-		padding: 0px;
-		@media screen and (max-width:769px){
-			padding: 15px 0;
-		}
-		div{
-			background-color: $cinza;
-			height: 638px;
-			@media screen and (max-width:769px){
-				height: 300px;
-			}
-			.video-container{
-				video{
-					object-fit: cover;
-				}	
+
+.card{
+	border-color: black;
+	border-width: 4px;
+	margin-top: 25%;
+
+	.cadastro{
+		.form-group{
+			input{
+				background-color: rgb(229, 236, 231);
+				border-color: black;
+				margin-bottom: 15px;
+				margin-top: 5px;
 			}
 		}
 	}
-	.content-sobre{
-		padding-left: 120px;
-		padding-top: 87px;
-		padding-right: 225px;
-		@media screen and (max-width:1440px){
-			padding-right: 0px;
-		}
-		@media screen and (max-width:1366px){
-			padding-left: 80px;
-			padding-top: 87px;
-			padding-right: 0px;
-		}
-		@media screen and (max-width:1024px){
-			padding: 65px;
-		}
-		@media screen and (max-width:769px){
-			padding: 15px;
-		}
-		p{
-			color: $vinho;
-			font-family: $fontNeutronic;
-			font-size: 21px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 32px;
-			padding-bottom: 30px;
-		}
-		h1{
-			color: $vinho;
-			font-family: $fontNeutronic;
-			font-size: 49px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 62px;
-			letter-spacing: 0.49px;
-			padding-top: 15px;
-			@media screen and (max-width:769px){
-				font-size: 40px;
-				line-height: 50px;
+
+	.botoes-cadastro{
+		a{
+			background-color: rgb(42, 61, 165);
+			&:hover{
+				background-color: rgb(187, 189, 197);
+				color: rgb(18, 18, 19);
 			}
 		}
-	}
-	.imagem-xicaras{
-		width: 100%;
-		text-align: center;
-		padding: 54px;
-	}
-}
-.content-padrao{
-	background-color: $vermelho;
-	@media screen and (max-width: 769px){
-		.col-md-6{
-			width: 100%;
-		}
-	}
-	.fundo-xicaras{
-		order: 1;
-		height: 650px;
-		background-image: url('/public/canecas-2.png');
-		background-position: left 42px;
-		background-size: 67%;
-		background-repeat: no-repeat;
-		@media screen and (max-width: 1440px){
-			background-size: 89%;
-		}
-		@media screen and (max-width: 1366px){
-			background-size: contain;
-		}
-		@media screen and (max-width: 769px){
-			order: 2;
-		}
-		@media screen and (max-width: 1024px){
-			height: 484px;
-			background-size: contain;
-		}
-	}
-	.texto-guarani{
-		order: 2;
-		padding-top: 95px;
-		@media screen and (max-width: 1024px){
-			padding: 50px;
-		}
-		@media screen and (max-width: 769px){
-			padding: 50px 15px;
-			order: 1;
-		}
-		p{
-			color: $branco;
-			font-family: $fontNeutronic;
-			font-size: 21px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 32px;
-			margin-bottom: 40px;
-			width: 520px;
-			@media screen and (max-width: 1024px){
-				width: 100%;
-			}
-		}
-		span{
-			color: $branco;
-			font-family: $fontNeutronic;
-			font-size: 30px;
-			font-style: normal;
-			font-weight: 600;
-			line-height: 62px;
-			letter-spacing: 0.3px;
-			@media screen and (max-width:1024px){
-				font-size: 20px;
-			}
-		}
-		h2{
-			color: $rosa-claro;
-			font-family: $fontNeutronic;
-			font-size: 54px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 62px;
-			letter-spacing: 0.54px;
-			@media screen and (max-width:1024px){
-				font-size: 30px;
+		button{
+			background-color: rgb(42, 61, 165);
+			&:hover{
+				background-color: rgb(187, 189, 197);
+				color: rgb(18, 18, 19);
 			}
 		}
 	}
 }
-.content-listas{
-	background-color: $rosa;
-	padding: 88px 184px 55px;  
-	@media screen and (max-width:1024px){
-		padding: 88px 84px;
-	}
-	@media screen and (max-width:769px){
-		padding: 88px 15px;
-	}
-	.row{
-		.col-md-6{
-			ul{
-				margin: 0;
-				padding:0;
-				li{
-					color: $vinho;
-					font-family: $fontNeutronic;
-					font-size: 37px;
-					font-style: normal;
-					font-weight: 700;
-					line-height: 43px;
-					display: flex;
-					margin-bottom: 44px;
-					@media screen and (max-width:769px){
-						font-size: 20px!important;
-						font-size: 40px;
-						line-height: 25px;
-					}
-				}
-				li::before{
-					content: url('/public/caneca.png');
-					width: 42px;
-					height: 35px;
-					padding-top: 3px;
-					margin-right: 30px;
-				}
-			}
-			@media screen and (max-width:1024px){
-				width: 100%;
-			}
-		}
-	}
-}
-.content-video{
-	padding: 96px 121px;
-	@media screen and (max-width:1024px){
-		padding: 96px 15px;
-	}
-	background-color: $roxo;
-	div{
-		height: auto;
-	}
-}
-.content-clientes{
-	background-color: $preto;
+  
+.titulo{
 	text-align: center;
-	.serv-mobile{
-		display: none;
-	}
-	@media screen and (max-width:769px){
-		.serv-desktop{
-			display: none;
-			margin: 0 auto;
-		}
-		.serv-mobile{
-			display: block;
-			margin: 0 auto;
-		}
-	}
-}
-.content-posts {
-	padding: 96px 93px;
-	@media screen and (max-width:769px){
-		padding: 96px 30px;
-	}
-	background-color: $roxo;
-	display: flex;
-    justify-content: center;
-	align-items: center;
-	.dados{
-		p{
-			margin-bottom: 10px;
-		}
-	}
-	.content-item{
-		margin-bottom: 20px;
-		@media screen and (max-width:1024px){
-			display: grid;
-			.col-md-7{
-				width: 100%;
-			}
-			.col-md-5{
-				width: 100%;
-				padding: 0 67px;
-				margin-top: 30px;
-				@media screen and (max-width: 769px){
-					padding: 0;
-				}
-			}
-		}
-		.content-imagem-post{
-			text-align: end;
-			height: 675px;
-			img{
-				-webkit-border-radius: 20px;
-				-moz-border-radius: 20px;
-				border-radius: 20px;
-			}
-			@media screen and (max-width:1024px){
-				width: 100%;
-				text-align: center;
-				height: auto;
-			}
-		}
-		.content-texto-post{
-			width: 502px;
-			background-color: $rosa;
-			-webkit-border-radius: 35px;
-			-moz-border-radius: 35px;
-			border-radius: 35px;
-			padding: 47px 35px;
-			height: 675px;
-			display: grid;
-			@media screen and (max-width:1024px){
-				width: 100%;
-				height: auto;
-			}
-			p{
-				strong{
-					color: $preto;
-					font-family: $fontNeutronic;
-					font-size: 16px;
-					font-style: normal;
-					font-weight: 600;
-				}
-				color: $preto;
-				font-family: $fontNeutronic;
-				font-size: 17px;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 24px;
-			}
-			.texto{
-				p{
-					margin-top: 30px;
-					margin-bottom: 30px;
-				}
-			}
-			.p-conteudo-especial{
-				display: flex;
-				align-items: center;
-				margin-top: 30px;
-				img{
-					margin-right: 15px;
-				}
-			}
-		}
-	}
-}
-.content-formulario{
-	background-color: $branco;
-	padding: 88px 158px;
-	@media screen and (max-width:1024px){
-		.row{
-			display: grid;
-			.col-md-6{
-				width: 100%;
-			}
-		}
-		padding: 88px 15px;
-	}
-	.content-msg{
-		width:400px;
-		margin-left: 160px;
-		@media screen and (max-width:1440px){
-			margin-left: 0px;
-		}
-		@media screen and (max-width:1024px){
-			width: 100%;
-			margin-bottom: 60px;
-		}
-		p{
-			padding-right: 20px;
-			margin-top: 30px;
-		}
-	}
-	h3{
-		color: $preto;
-		font-family: $fontNeutronic;
-		font-size: 52px;
-		font-style: normal;
-		font-weight: 600;
-		line-height: 62px;
-		@media screen and (max-width:769px){
-			font-size: 40px;
-			line-height: 40px;
-		}
-	}
-	p{
-		color: $preto;
-		font-family: $fontNeutronic;
-		font-size: 23px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 42px;
-		@media screen and (max-width:769px) {
-			font-weight: 400;
-			line-height: 35px;
-			margin-bottom: 40px
-		}
-	}
-	.form-group{
-		margin-top: 15px;
-		margin-bottom: 25px;
-		label{
-			color: $preto;
-			font-family: $fontNeutronic;
-			font-size: 21px;
-			font-style: normal;
-			font-weight: 600;
-			line-height: 42px;
-		}
-		input{
-			color: #D2D2D2;
-			font-family: $fontNeutronic;
-			font-size: 19px;
-			font-style: normal;
-			font-weight: 400;
-			-webkit-border-radius: 6px;
-			-moz-border-radius: 6px;
-			border-radius: 6px;
-			border: 2px solid #A9A9A9;
-			background: #F1F1F1;
-			width: 560px;
-			padding-top: 10px;
-			@media screen and (max-width:1366px){
-				width: 100%;
-			}
-		}
-		input::placeholder {
-			color: #D2D2D2;
-		}
-		textarea{
-			color: #D2D2D2;
-			font-family: $fontNeutronic;
-			font-size: 19px;
-			font-style: normal;
-			font-weight: 400;
-			-webkit-border-radius: 6px;
-			-moz-border-radius: 6px;
-			border-radius: 6px;
-			border: 2px solid #A9A9A9;
-			background: #F1F1F1;
-			width: 560px;
-			height: 229px;
-			padding-top: 10px;
-			@media screen and (max-width:1366px){
-				width: 100%;
-			}
-		}
-		textarea::placeholder {
-			color: #D2D2D2;
-		}
-	}
-	h4{
-		color: $preto;
-		font-family: $fontNeutronic;
-		font-size: 68px;
-		font-style: normal;
-		font-weight: 600;
-		line-height: 62px; 
-		@media screen and (max-width:769px){
-			font-size: 40px;
-			line-height: 40px;
-		}
-	}
-	button{
-		width: 143px;
-		height: 54px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		align-content: center;
-		padding-top: 14px;
-		font-family: $fontNeutronic;
-		font-size: 19px;
-		font-style: normal;
-		font-weight: 600;
-		-webkit-border-radius: 6px;
-		-moz-border-radius: 6px;
-		border-radius: 6px;
-		background: $amarelo;
-		color: $preto;
-	}
-	button:hover{
-		background-color: $roxo;
-		color: $branco;
-	}
-}
-.voltar{
-	position: fixed;
-	bottom: 30px;
-	right: 50px;
-	width: 60px;
-	height: 60px;
-	background-color: $roxo;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-	text-align: center;
-	font-family: $fontNeutronic;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 600;
-	padding: 14px;
-	cursor: pointer;
-	display: none;
-	align-items: center;
-    justify-content: center;
+	font-size: 33px;
 }
 
-.whatsapp {
-    position: fixed;
-    left: 30px;
-    bottom: 30px;
+.botao-excluir{
+	background-color: rgb(209, 27, 27);
+			&:hover{
+				background-color: rgb(187, 189, 197);
+				color: rgb(18, 18, 19);
+
+}
 }
 
-.modal {
-    display: none;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para o modal */
-
-	.content-msg{
-		width: 500px;
-		text-align: center;
-		padding: 25px;
-		@media screen and (max-width:769px){
-			width: 100%;
-		}
-		.modal-body{
-			h1{
-				color: $vinho;
-				text-align: center;
-				font-family: $fontNeutronic;
-				font-size: 18px;
-				font-style: normal;
-				font-weight: 700;
-				line-height: normal;
-				margin-top: 35px;
-				margin-bottom: 13px;
-			}
-			p{
-				color: $vinho;
-				text-align: center;
-				font-family: $fontNeutronic;
-				font-size: 14px;
-				font-style: normal;
-				font-weight: 400;
-				line-height: normal;
-			}
-		}
-		.modal-footer{
-			border-top: 0;
-			button{
-				-webkit-border-radius: 6px;
-				-moz-border-radius: 6px;
-				border-radius: 6px;
-				background: #FFC615;
-				margin: 0 auto;
-				width: 65px;
-				height: 29px;
-				padding: 0;
-				border: 0;
-				color: $preto;
-				text-align: center;
-				font-family: $Quasimoda;
-				font-size: 12.6px;
-				font-style: normal;
-				font-weight: 700;
-				line-height: normal;
-			}
-		}
-	}
+.botao-editar{ 
+	background-color: rgb(55, 42, 230);
+			&:hover{
+				background-color: rgb(187, 189, 197);
+				color: rgb(18, 18, 19);
 }
+}
+
