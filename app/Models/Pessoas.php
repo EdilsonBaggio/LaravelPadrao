@@ -12,7 +12,7 @@ class Pessoas extends Model
     protected $fillable = [
         'name',
         'email',
-        'email_verified_at',
+        'verificacao_email',
         'telefone',
         'data_nascimento',
         'cpf',
@@ -21,6 +21,5 @@ class Pessoas extends Model
 
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 }

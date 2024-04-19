@@ -33,16 +33,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email_verified_at">Confirme e-mail:</label>
-                            <input id="email_verified_at" type="email" class="form-control @error('email_verified_at') is-invalid @enderror" name="email_verified_at" value="{{ old('email_verified_at') }}" required>
+                            <label for="verificacao_email">E-mail:</label>
+                            <input id="verificacao_email" type="email" class="form-control @error('verificacao_email') is-invalid @enderror" name="verificacao_email" value="{{ old('verificacao_email') }}" required>
 
-                            @error('email_verified_at')
+                            @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror 
                         </div>
-
 
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
@@ -57,7 +56,7 @@
 
                         <div class="form-group">
                             <label for="data_nascimento">Data de Nascimento:</label>
-                            <input id="data_nascimento" type="date" class="form-control @error('data_nascimento') is-invalid @enderror" name="date" value="{{ old('data_nascimento') }}" required autofocus>
+                            <input id="data_nascimento" type="date" class="form-control @error('data_nascimento') is-invalid @enderror" name="data_nascimento" value="{{ old('data_nascimento') }}" required autofocus>
 
                             @error('data_nascimento')
                                 <span class="invalid-feedback" role="alert">
@@ -119,7 +118,7 @@
             console.log(formData);
 
             $.ajax({
-                url: '{{ route("passoas") }}',
+                url: '{{ route("pessoas") }}',
                 type: 'POST',
                 data: formData,
                 success: function(response){
