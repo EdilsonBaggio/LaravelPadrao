@@ -58,10 +58,9 @@ class Ignition
         return new self();
     }
 
-    public function __construct(
-        ?Flare $flare = null,
-    ) {
-        $this->flare = $flare ?? Flare::make();
+    public function __construct()
+    {
+        $this->flare = Flare::make();
 
         $this->ignitionConfig = IgnitionConfig::loadFromConfigFile();
 

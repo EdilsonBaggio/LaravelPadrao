@@ -30,7 +30,7 @@ class SuggestPromptRenderer extends Renderer implements Scrolling
                     $this->strikethrough($this->dim($this->truncate($prompt->value() ?: $prompt->placeholder, $maxWidth))),
                     color: 'red',
                 )
-                ->error($prompt->cancelMessage),
+                ->error('Cancelled'),
 
             'error' => $this
                 ->box(

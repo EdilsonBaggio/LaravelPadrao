@@ -137,7 +137,7 @@ final class Issue
 
         $hash = sha1($lines[$key]);
 
-        assert($hash !== '');
+        assert(!empty($hash));
 
         return $hash;
     }
