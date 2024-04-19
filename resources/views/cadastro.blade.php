@@ -33,18 +33,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email_verified_at">Confirme e-mail:</label>
-                            <input id="email_verified_at" type="email" class="form-control @error('email_verified_at') is-invalid @enderror" name="email_verified_at" value="{{ old('email_verified_at') }}" required>
-
-                            @error('email_verified_at')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror 
-                        </div>
-
-
-                        <div class="form-group">
                             <label for="telefone">Telefone:</label>
                             <input id="telefone" type="number" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
 
@@ -57,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="data_nascimento">Data de Nascimento:</label>
-                            <input id="data_nascimento" type="date" class="form-control @error('data_nascimento') is-invalid @enderror" name="date" value="{{ old('data_nascimento') }}" required autofocus>
+                            <input id="data_nascimento" type="date" class="form-control @error('data_nascimento') is-invalid @enderror" name="data_nascimento" value="{{ old('data_nascimento') }}" required autofocus>
 
                             @error('data_nascimento')
                                 <span class="invalid-feedback" role="alert">
@@ -119,7 +107,7 @@
             console.log(formData);
 
             $.ajax({
-                url: '{{ route("passoas") }}',
+                url: '{{ route("pessoas") }}',
                 type: 'POST',
                 data: formData,
                 success: function(response){

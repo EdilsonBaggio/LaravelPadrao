@@ -36,4 +36,4 @@ Route::get('/listar-usuario', function () {
 })->name('listar');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
-Route::post('/passoas', [PessoaController::class, 'pessoas'])->name('passoas');
+Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
