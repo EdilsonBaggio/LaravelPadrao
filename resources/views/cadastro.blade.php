@@ -7,7 +7,7 @@
                 <div class="card-header titulo">Cadastro:</div> <!-- Seção de cabeçalho do cartão, que contém o título "Cadastro:". -->
 
                 <div class="card-body cadastro"> <!--  É a seção do corpo do cartão, que contém o formulário de cadastro. -->
-                    <form method="POST" action="{{route('store')}}"> <!-- Este é o formulário HTML que enviará os dados para o servidor. O atributo method="POST" especifica que os dados serão enviados por meio de uma solicitação POST. O atributo action="" especifica o URL para o qual os dados serão enviados. -->
+                    <form id="formCadastro"> <!-- Este é o formulário HTML que enviará os dados para o servidor. O atributo method="POST" especifica que os dados serão enviados por meio de uma solicitação POST. O atributo action="" especifica o URL para o qual os dados serão enviados. -->
                         @csrf <!--  Este é um token de segurança CSRF,gerado automaticamente pelo Laravel para proteger contra ataques  -->
 
                         <div class="form-group"> <!--  Este é um grupo de formulário bootstrap. -->
@@ -34,7 +34,7 @@
 
                         <div class="form-group">
                             <label for="email_verified_at">Confirme e-mail:</label>
-                            <input id="email_verified_at" type="email_verified_at" class="form-control" name="email_verified_at" required>
+                            <input id="email_verified_at" type="email" class="form-control @error('email_verified_at') is-invalid @enderror" name="email_verified_at" value="{{ old('email_verified_at') }}" required>
 
                             @error('email_verified_at')
                                 <span class="invalid-feedback" role="alert">
@@ -45,10 +45,10 @@
 
 
                         <div class="form-group">
-                            <label for="fone">Telefone:</label>
-                            <input id="fone" type="number" class="form-control @error('telefone') is-invalid @enderror" name="fone" value="{{ old('fone') }}" required autofocus>
+                            <label for="telefone">Telefone:</label>
+                            <input id="telefone" type="number" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
 
-                            @error('fone')
+                            @error('telefone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -56,10 +56,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="date">Data de Nascimento:</label>
-                            <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autofocus>
+                            <label for="data_nascimento">Data de Nascimento:</label>
+                            <input id="data_nascimento" type="date" class="form-control @error('data_nascimento') is-invalid @enderror" name="date" value="{{ old('data_nascimento') }}" required autofocus>
 
-                            @error('date')
+                            @error('data_nascimento')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf"  maxlength="11" value="{{ old('number') }}" required autofocus>
+                            <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf" min="0" max="99999999999" value="{{ old('cpf') }}" required autofocus>
 
                             @error('int')
                                 <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="form-group mb-0 botoes-cadastro">
-                            <button type="submit" id="formContato" class="btn btn-primary"> <!--  Este é o botão de envio do formulário. Quando clicado, enviará os dados do formulário para o servidor.-->
+                            <button type="submit" class="btn btn-primary"> <!--  Este é o botão de envio do formulário. Quando clicado, enviará os dados do formulário para o servidor.-->
                                 Criar Cadastro
                             </button>
                            
@@ -105,4 +105,33 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#formCadastro').submit(function(e){
+            e.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+            // Serialize o formulário para enviar os dados
+            var formData = $(this).serialize();
+
+            console.log(formData);
+
+            $.ajax({
+                url: '{{ route("passoas") }}',
+                type: 'POST',
+                data: formData,
+                success: function(response){
+                    // Lidar com a resposta bem-sucedida aqui
+                    console.log('Resposta do servidor:', response);
+                },
+                error: function(xhr, status, error){
+                    // Lidar com erros aqui
+                    console.error('Erro na chamada AJAX:', error);
+                }
+            });
+        });
+    });
+</script>
 @endsection

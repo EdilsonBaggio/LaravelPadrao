@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('telefone')->nullable(); // Adicionando o campo telefone
+            $table->string('cpf')->unique(); // Adicionando o campo CPF e marcando como único
+            $table->date('data_nascimento')->nullable(); // Adicionando o campo data de nascimento
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
