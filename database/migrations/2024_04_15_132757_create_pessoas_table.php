@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('verificacao_email')->unique();
             $table->string('telefone')->nullable(); // Adicionando o campo telefone
             $table->string('cpf')->unique(); // Adicionando o campo CPF e marcando como único
             $table->date('data_nascimento')->nullable(); // Adicionando o campo data de nascimento

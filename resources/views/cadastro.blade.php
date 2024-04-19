@@ -33,6 +33,17 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="verificacao_email">E-mail:</label>
+                            <input id="verificacao_email" type="email" class="form-control @error('verificacao_email') is-invalid @enderror" name="verificacao_email" value="{{ old('verificacao_email') }}" required>
+
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror 
+                        </div>
+
+                        <div class="form-group">
                             <label for="telefone">Telefone:</label>
                             <input id="telefone" type="number" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
 
