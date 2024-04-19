@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,4 @@ Route::get('/listar-usuario', function () {
 })->name('listar');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
+Route::post('/store', [UserController::class, 'store'])->name('store');

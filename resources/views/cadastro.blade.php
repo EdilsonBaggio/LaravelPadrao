@@ -7,7 +7,7 @@
                 <div class="card-header titulo">Cadastro:</div> <!-- Seção de cabeçalho do cartão, que contém o título "Cadastro:". -->
 
                 <div class="card-body cadastro"> <!--  É a seção do corpo do cartão, que contém o formulário de cadastro. -->
-                    <form method="POST"> <!-- Este é o formulário HTML que enviará os dados para o servidor. O atributo method="POST" especifica que os dados serão enviados por meio de uma solicitação POST. O atributo action="" especifica o URL para o qual os dados serão enviados. -->
+                    <form method="POST" action="{{route('store')}}"> <!-- Este é o formulário HTML que enviará os dados para o servidor. O atributo method="POST" especifica que os dados serão enviados por meio de uma solicitação POST. O atributo action="" especifica o URL para o qual os dados serão enviados. -->
                         @csrf <!--  Este é um token de segurança CSRF,gerado automaticamente pelo Laravel para proteger contra ataques  -->
 
                         <div class="form-group"> <!--  Este é um grupo de formulário bootstrap. -->
@@ -31,6 +31,18 @@
                                 </span>
                             @enderror 
                         </div>
+
+                        <div class="form-group">
+                            <label for="email_verified_at">Confirme e-mail:</label>
+                            <input id="email_verified_at" type="email_verified_at" class="form-control" name="email_verified_at" required>
+
+                            @error('email_verified_at')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror 
+                        </div>
+
 
                         <div class="form-group">
                             <label for="fone">Telefone:</label>
@@ -57,7 +69,7 @@
 
                         <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('number') }}" required autofocus>
+                            <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf"  maxlength="11" value="{{ old('number') }}" required autofocus>
 
                             @error('int')
                                 <span class="invalid-feedback" role="alert">
@@ -75,11 +87,6 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password_confirmation">Confirme Senha:</label>
-                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
                         </div>
 
                         <div class="form-group mb-0 botoes-cadastro">
