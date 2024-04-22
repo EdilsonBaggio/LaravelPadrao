@@ -1,4 +1,5 @@
 @extends('layout.master') 
+
 @section('content')
 <div class="container"> 
    <div class="row justify-content-center"> 
@@ -11,24 +12,24 @@
                   @csrf 
 
                   <div class="form-group"> 
-                     <label class="mb-2" for="usuario">usuario</label> 
+                     <label class="mb-2" for="usuario">Usuário</label> 
                      <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autofocus> 
+                     @error('email') 
+                        <span class="invalid-feedback" role="alert"> 
+                           <strong>{{ $message }}</strong> 
+                        </span>
+                     @enderror 
                   </div>
-                  @error('Usuário:') 
-                  <span class="invalid-feedback" role="alert"> 
-                     <strong>{{ $message }}</strong> 
-                  </span>
-                  @enderror 
                   <br>
                   <div class="form-group">
                      <label class="mb-2" for="password">Senha:</label>
                      <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" required>
+                     @error('password')
+                        <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
                   </div>
-                  @error('password')
-                  <span class="invalid-feedback" role="alert">
-                     <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
                   <br>
                   <div class="form-group mb-0 botoes-cadastro">
                      <button type="submit" class="btn btn-primary"> 

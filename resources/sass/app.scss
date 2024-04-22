@@ -7,29 +7,29 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0; 
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-/* sass --watch resources/sass/app.scss:resources/css/app.css */ 
-article, aside, details, figcaption, figure, 
+/* sass --watch resources/sass/app.scss:resources/css/app.css */
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
-
+ 
 //Fontes
-
-$fontNeon:"Tilt Neon", sans-serif; 
+ 
+$fontNeon:"Tilt Neon", sans-serif;
 $Quasimoda: "quasimoda", sans-serif;
-
+ 
 $branco: #FFFFFF;
 $cinza: #CDCDCD;
 $amarelo: #FFC615;
@@ -40,89 +40,96 @@ $roxo: #871AE6;
 $preto: #000000;
 $vinho: #2B1705;
 $marrom: #574b4b;
-
-
+ 
+ 
 body {
-	line-height: 1;
+    line-height: 1;
     background: $marrom;
-	font-family: $fontNeon;
-	align-items: center;
+    font-family: $fontNeon;
+    align-items: center;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+ 
 }
 .row{
-	-bs-gutter-x: 0rem;
+    -bs-gutter-x: 0rem;
 }
-
+ 
 .card{
-	border-color: black;
-	border-width: 4px;
-	margin-top: 100px;
-
-	.cadastro{
-		.form-group{
-			input{
-				background-color: rgb(229, 236, 231);
-				border-color: black;
-				margin-bottom: 15px;
-				margin-top: 5px;
-			}
-		}
-	}
-
-	.botoes-cadastro{
-		a{
-			background-color: rgb(42, 61, 165);
-			&:hover{
-				background-color: rgb(187, 189, 197);
-				color: rgb(18, 18, 19);
-			}
-		}
-		button{
-			background-color: rgb(42, 61, 165);
-			&:hover{
-				background-color: rgb(187, 189, 197);
-				color: rgb(18, 18, 19);
-			}
-		}
-	}
+    border-color: black;
+    border-width: 4px;
+    margin-top: 100px;
+ 
+    .cadastro{
+        .form-group{
+            input{
+                background-color: rgb(229, 236, 231);
+                border-color: black;
+                margin-bottom: 15px;
+                margin-top: 5px;
+            }
+        }
+    }
+ 
+    .botoes-cadastro{
+        a{
+            background-color: rgb(42, 61, 165);
+            &:hover{
+                background-color: rgb(187, 189, 197);
+                color: rgb(18, 18, 19);
+            }
+        }
+        button{
+            background-color: rgb(42, 61, 165);
+            &:hover{
+                background-color: rgb(187, 189, 197);
+                color: rgb(18, 18, 19);
+            }
+        }
+    }
 }
-  
+ 
 .titulo{
-	text-align: center;
-	font-size: 33px;
-	background-color: #ffffff;
-	font-family: Arial, Helvetica, sans-serif;
-
+    text-align: center;
+    font-size: 33px;
+    background-color: #d1c0c0;
+    font-family: $preto;
+    font-family: Arial, Helvetica, sans-serif;
+ 
 }
-
+ 
 .botao-excluir{
-	background-color: rgb(209, 27, 27);
-			&:hover{
-				background-color: rgb(187, 189, 197);
-				color: rgb(18, 18, 19);
-
+    background-color: rgb(204, 17, 17);
+    border-radius:8%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+            &:hover{
+                background-color: rgb(236, 238, 248);
+                color: rgb(18, 18, 19);
+               
+ 
 }
 }
-
-.botao-editar{ 
-	background-color: rgb(55, 42, 230);
-			&:hover{
-				background-color: rgb(187, 189, 197);
-				color: rgb(18, 18, 19);
+ 
+.botao-editar{
+    background-color: rgb(158, 151, 253);
+    border-radius: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+            &:hover{
+                background-color: rgb(236, 238, 248);
+                color: rgb(18, 18, 19);
+ 
+            }
 }
-}
-
