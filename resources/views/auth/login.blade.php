@@ -7,12 +7,12 @@
             <div class="card-header titulo">Login:</div> 
 
             <div class="card-body Login">
-               <form method="POST" action=""> 
+               <form method="POST" action="{{ route('login') }}">
                   @csrf 
 
                   <div class="form-group"> 
                      <label class="mb-2" for="usuario">usuario</label> 
-                     <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" required autofocus> 
+                     <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autofocus> 
                   </div>
                   @error('Usuário:') 
                   <span class="invalid-feedback" role="alert"> 
@@ -22,7 +22,7 @@
                   <br>
                   <div class="form-group">
                      <label class="mb-2" for="password">Senha:</label>
-                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
+                     <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" required>
                   </div>
                   @error('password')
                   <span class="invalid-feedback" role="alert">
