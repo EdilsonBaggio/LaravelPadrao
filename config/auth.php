@@ -40,8 +40,19 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-    ],
-
+    
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+    
+        'pessoas' => [
+            'driver' => 'session',
+            'provider' => 'pessoas',
+        ],
+    ],    
+    
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -64,12 +75,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+    
+        'pessoas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pessoas::class,
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Pessoas; // Alterado de 'Pessoa' para 'Pessoas'
 
 class AuthController extends Controller
 {
@@ -17,13 +18,15 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         // Verifica as credenciais na tabela 'pessoas'
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+
+        if (Auth::guard('pessoas')->attempt($credentials)) {
             // Autenticação bem-sucedida
-            return redirect()->intended('dashboard');
+            return redirect()->intended('listar-usuario');
         }
 
         return back()->withErrors(['email' => 'These credentials do not match our records.'])->withInput($request->only('email'));
     }
+
 
 
     public function logout()
