@@ -25,8 +25,8 @@ Route::get('/cadastro', function () {
 })->name('cadastro');
 
 Route::get('/listar-usuario', function () {
-    return view('lista-usuario');
-})->middleware('auth')->name('listar');
+    return view('listar-usuario');
+})->middleware('auth:pessoas')->name('listar');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
