@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="verificacao_email">E-mail:</label>
+                            <label for="verificacao_email">Confirmar e-mail:</label>
                             <input id="verificacao_email" type="email" class="form-control @error('verificacao_email') is-invalid @enderror" name="verificacao_email" value="{{ old('verificacao_email') }}" required>
 
                             @error('email')
@@ -68,7 +68,7 @@
 
                         <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf" min="0" max="99999999999" value="{{ old('cpf') }}" required autofocus>
+                            <input id="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror" name="cpf"  value="{{ old('cpf') }}" required autofocus>
 
                             @error('int')
                                 <span class="invalid-feedback" role="alert">
@@ -115,19 +115,19 @@
             // Serialize o formulário para enviar os dados
             var formData = $(this).serialize();
 
-            console.log(formData);
-
             $.ajax({
                 url: '{{ route("pessoas") }}',
                 type: 'POST',
                 data: formData,
                 success: function(response){
                     // Lidar com a resposta bem-sucedida aqui
-                    console.log('Resposta do servidor:', response);
+                    console.log('Sucesso');
+                    //Limpa o input depois de enviado.
+                    $("#name").val("");
                 },
                 error: function(xhr, status, error){
                     // Lidar com erros aqui
-                    console.error('Erro na chamada AJAX:', error);
+                    console.error('Erro');
                 }
             });
         });
