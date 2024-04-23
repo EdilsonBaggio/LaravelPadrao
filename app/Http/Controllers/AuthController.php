@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         if (Auth::guard('pessoas')->attempt($credentials)) {
             // Autenticação bem-sucedida
-            return redirect()->intended('listar-usuario');
+            return redirect()->intended('listar-usuarios');
         }
 
         return back()->withErrors(['email' => 'These credentials do not match our records.'])->withInput($request->only('email'));

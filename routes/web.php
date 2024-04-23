@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\ListaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,9 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-Route::get('/listar-usuario', function () {
-    return view('listar-usuario');
-})->middleware('auth:pessoas')->name('listar');
+Route::get('/listar-usuario', [ListaController::class, 'lista'])
+    ->middleware('auth:pessoas')
+    ->name('listar');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
