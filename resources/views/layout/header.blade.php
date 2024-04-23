@@ -12,7 +12,7 @@
           <a class="nav-link" aria-current="page" href="{{route('login')}}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Listar usuario</a>
+          <a class="nav-link" href="{{route('listar')}}">Listar usuario</a>
         </li>      
     </div>
   </div>
