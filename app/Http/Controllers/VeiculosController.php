@@ -17,7 +17,7 @@ class VeiculosController extends Controller
             'marca' => 'required|string|max:255',
         ]);
  
-        // Criar um novo usuário com os dados validados
+        // Criar um novo veiculo com os dados validados
         $user = new veiculos();
         $user->placa = $validatedData['placa'];
         $user->modelo = $validatedData['modelo'];
@@ -26,6 +26,6 @@ class VeiculosController extends Controller
         $user->save();
  
         // Redirecionar após salvar
-        return redirect()->back()->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->back()->with('success', 'Veiculo cadastrado com sucesso!');
     }
 }
