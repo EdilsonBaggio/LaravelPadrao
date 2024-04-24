@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ListaController;
+use App\Models\Pessoas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,10 @@ Route::get('/cadastro', function () {
 Route::get('/listar-usuario', [ListaController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('listar');
+
+Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando {id} como parâmetro na rota
+    ->middleware('auth:pessoas')
+    ->name('usuario');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
