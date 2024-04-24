@@ -1,13 +1,13 @@
 @extends('layout.master') 
+
 @section('content')
-<br>
-</br>
+<br></br>
 <div class="container">
     <h2 class="titulo">Tabela de Cadastros:</h2>      
     <table id="tabela-pessoas" class="display table" style="width:100%">
         <thead>
             <tr>
-                <th>ID:</th> <!-- Cria nome das tabelas em html  -->
+                <th>ID:</th>
                 <th>Nome:</th>
                 <th>E-mail:</th>
                 <th>CPF:</th>
@@ -15,23 +15,24 @@
                 <th>Data de Nascimento:</th>
                 <th></th>
                 <th></th>
-               
             </tr>
         </thead>
         <tbody>
             @foreach($pessoas as $pessoa)
                 <tr>
-                    <td>{{ $pessoa->id }}</td> <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (id) -->
-                    <td>{{ $pessoa->name }}</td> <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (nome) -->
-                    <td>{{ $pessoa->email }}</td>  <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (email) -->
-                    <td>{{ $pessoa->cpf }}</td>  <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (cpf) -->
-                    <td>{{ $pessoa->telefone }}</td> <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (telefone) -->
-                    <td>{{ $pessoa->data_nascimento }}</td> <!-- Pega os dados do banco de dados de acordo com cada id e mostra na tela nesse caso o (data_nascimento) -->
+                    <td>{{ $pessoa->id }}</td>
+                    <td>{{ $pessoa->name }}</td>
+                    <td>{{ $pessoa->email }}</td>
+                    <td>{{ $pessoa->cpf }}</td>
+                    <td>{{ $pessoa->telefone }}</td>
+                    <td>{{ $pessoa->data_nascimento }}</td>
                     <td>
-                      <button class="botao-editar">Editar</button>
+                        <a href="{{ route('usuario', $pessoa->id) }}">
+                            Editar
+                        </a>
                     </td>
                     <td>
-                      <button class="botao-excluir">Excluir</button>
+                        <button class="botao-excluir">Excluir</button>
                     </td>
                 </tr>
             @endforeach
