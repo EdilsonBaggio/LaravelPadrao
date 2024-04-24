@@ -32,7 +32,9 @@
                         </a>
                     </td>
                     <td>
-                        <button class="botao-excluir">Excluir</button>
+                        <a href="{{ route('excluir', $pessoa->id) }}">
+                            Excluir
+                        </a>
                     </td>
                 </tr>
             @endforeach

@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/editar/{id}', [PessoaController::class, 'atualizar'])->name('atualizar');
+Route::get('/editar/{id}', [PessoaController::class, 'excluir'])->name('excluir');
