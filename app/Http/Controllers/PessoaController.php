@@ -82,5 +82,19 @@ class PessoaController extends Controller
         // Aqui você pode retornar a visualização de edição com os dados do usuário
         return view('editar', compact('user'));
     }
-    
+
+    public function excluir($id){
+        // Verifica se o usuário existe
+        $user = Pessoas::find($id);
+        
+        if($user){
+            // Se o usuário existe, exclui
+            $user->delete();
+            return redirect()->route('listar');
+        } else {
+            // Se o usuário não existe, retorna uma mensagem de erro
+            return "Usuário não encontrado.";
+        }
+    }
+
 }
