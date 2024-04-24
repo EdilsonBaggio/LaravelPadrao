@@ -26,6 +26,10 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
+Route::get('/cadastro_veiculo', function () {
+    return view('cadastro_veiculo');
+})->name('cadastro_veiculo');
+
 Route::get('/listar-usuario', [ListaController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('listar');
@@ -36,6 +40,7 @@ Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando 
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
+Route::post('/veiculos', [VeiculosController::class, 'veiculos'])->name('veiculos');
 
 // Rota para exibir o formulário de login
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
