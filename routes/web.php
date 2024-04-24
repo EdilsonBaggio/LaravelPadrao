@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ListaController;
-use App\Models\Pessoas;
+use App\Http\Controllers\VeiculosController;
 use Illuminate\Support\Facades\Route;
 
 /*
