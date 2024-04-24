@@ -124,9 +124,29 @@
                 data: formData,
                 success: function(response){
                     console.log('Sucesso');
+                    Swal.fire({
+                    title: "Sucesso",
+                    text: "O dados do usuário foram atualizados",
+                    icon: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ok"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "{{ url()->previous() }}";
+                        }
+                    });
                 },
                 error: function(xhr, status, error){
                     console.error('Erro');
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Os dados não foram atualizados!",
+                        showCancelButton: false,
+                        cancelButtonColor: "#d33",
+                    });
                 }
             });
         });
