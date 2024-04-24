@@ -120,14 +120,37 @@
                 type: 'POST',
                 data: formData,
                 success: function(response){
-                    // Lidar com a resposta bem-sucedida aqui
                     console.log('Sucesso');
-                    //Limpa o input depois de enviado.
-                    $("#name").val("");
+                    Swal.fire({
+                    title: "Sucesso",
+                    text: "Usuário cadastrado com sucesso",
+                    icon: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ok"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $("#name").val("");
+                            $("#email").val("");
+                            $("#verificacao_email").val("");
+                            $("#telefone").val("");
+                            $("#data_nascimento").val("");
+                            $("#cpf").val("");
+                            $("#password").val("");
+                            window.location.href = "{{ url()->previous() }}";
+                        }
+                    });
                 },
                 error: function(xhr, status, error){
-                    // Lidar com erros aqui
                     console.error('Erro');
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "O usuário não foi cadastrado",
+                        showCancelButton: false,
+                        cancelButtonColor: "#d33",
+                    });
                 }
             });
         });
