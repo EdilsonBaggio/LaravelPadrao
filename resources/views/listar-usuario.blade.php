@@ -25,14 +25,14 @@
                     <td>{{ $pessoa->email }}</td>
                     <td>{{ $pessoa->cpf }}</td>
                     <td>{{ $pessoa->telefone }}</td>
-                    <td>{{ $pessoa->data_nascimento }}</td>
+                    <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td> <!-- Aqui ele esta pedindo para o campo de data de nascimento formatar na ordem: dia, mes e ano-->
                     <td>
-                        <a href="{{ route('usuario', $pessoa->id) }}">
+                        <a class=botao-editar href="{{ route('usuario', $pessoa->id) }}">
                             Editar
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('excluir', $pessoa->id) }}">
+                        <a class=botao-excluir href="{{ route('excluir', $pessoa->id) }}">
                             Excluir
                         </a>
                     </td>
