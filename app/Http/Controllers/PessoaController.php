@@ -74,7 +74,6 @@ class PessoaController extends Controller
         }
     }
     
-
     public function usuario($id){
         // Encontrar o usuário pelo ID
         $user = Pessoas::findOrFail($id);

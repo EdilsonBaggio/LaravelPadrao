@@ -25,7 +25,7 @@
                     <td>{{ $pessoa->email }}</td>
                     <td>{{ $pessoa->cpf }}</td>
                     <td>{{ $pessoa->telefone }}</td>
-                    <td>{{ $pessoa->data_nascimento }}</td>
+                    <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td>
                     <td>
                         <a href="{{ route('usuario', $pessoa->id) }}">
                             Editar
