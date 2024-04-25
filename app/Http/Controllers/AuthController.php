@@ -27,11 +27,12 @@ class AuthController extends Controller
         return back()->withErrors(['email' => 'These credentials do not match our records.'])->withInput($request->only('email'));
     }
 
-
-
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        session()->invalidate(); // Limpa a sessão
+        session()->regenerateToken(); // Regenera o token
+        return redirect('/');
     }
+
 }

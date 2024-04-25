@@ -38,10 +38,13 @@ Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando 
     ->middleware('auth:pessoas')
     ->name('usuario');
 
+Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])
+    ->middleware('auth:pessoas')
+    ->name('cadastro-veiculo');
+
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
 Route::post('/veiculos', [VeiculosController::class, 'veiculos'])->name('veiculos');
-Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])->name('cadastro-veiculo');
 
 
 // Rota para exibir o formulário de login

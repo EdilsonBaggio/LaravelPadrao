@@ -4,19 +4,36 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="{{route('cadastro')}}">Cadastro de Usuários</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('cadastro-veiculo')}}">Cadastro De Veiculos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('listar')}}">Listar usuario</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{route('login')}}">Login</a>
-        </li>    
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="{{route('cadastro')}}">Cadastro de Usuários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('listar')}}">Listar usuários</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('cadastro-veiculo')}}">Cadastro De Veiculos</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0 float-end">
+          @if(Auth::check())
+            <li class="nav-item">
+                  <a
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Logout
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </li>
+          @else
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{route('login')}}">Login</a>
+              </li>
+          @endif
+      </ul>
     </div>
   </div>
 </nav>
