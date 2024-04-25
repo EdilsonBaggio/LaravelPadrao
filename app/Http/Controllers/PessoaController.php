@@ -67,7 +67,7 @@ class PessoaController extends Controller
             $user->save();
         
             // Redirecionar após salvar
-            return redirect()->route('listar-usuario')->with('success', 'Usuário atualizado com sucesso!');
+            return redirect()->route('listar')->with('success', 'Usuário atualizado com sucesso!');
         } catch (\Exception $e) {
             // Se ocorrer algum erro, redirecione de volta com uma mensagem de erro
             return redirect()->back()->with('error', 'Ocorreu um erro ao atualizar o usuário.');
