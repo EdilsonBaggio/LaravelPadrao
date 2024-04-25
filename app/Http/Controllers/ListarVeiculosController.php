@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Schema;
-use App\Models\ListarVeiculos; // Certifique-se de importar o modelo Pessoa
+use App\Models\ListarVeiculos;
 
 class ListarVeiculosController extends Controller
 {

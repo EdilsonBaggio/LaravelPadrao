@@ -5,10 +5,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
-          </li>
-          @if(Auth::check())
+            <li class="nav-item">
+              <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Listar usuários</a>
             </li> 
@@ -18,7 +17,6 @@
             <li class="nav-item">
               <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
             </li>
-          @endif
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0 float-end">
           @if(Auth::check())

@@ -35,7 +35,7 @@ Route::get('/listar-usuario', [ListaController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('listar');
 
-Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando {id} como parâmetro na rota
+Route::get('/editar/{id}', [PessoaController::class, 'usuario']) 
     ->middleware('auth:pessoas')
     ->name('usuario');
 
