@@ -27,9 +27,9 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-Route::get('/cadastro_veiculo', function () {
-    return view('cadastro_veiculo');
-})->name('cadastro_veiculo');
+Route::get('/cadastro-veiculo', function () {
+    return view('cadastro-veiculo');
+})->name('cadastro-veiculo');
 
 Route::get('/listar-usuario', [ListaController::class, 'lista'])
     ->middleware('auth:pessoas')

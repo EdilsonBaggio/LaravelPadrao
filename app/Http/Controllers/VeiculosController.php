@@ -36,7 +36,7 @@ class VeiculosController extends Controller
     {
         $registros = Lista::all(); // Recuperar todos os registros da tabela "Lista"
 
-        return view('cadastro_veiculo', compact('registros'));
+        return view('cadastro-veiculo', compact('registros'));
     }
 
     public function excluir($id){
