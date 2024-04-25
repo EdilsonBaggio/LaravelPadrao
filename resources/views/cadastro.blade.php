@@ -45,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input id="telefone" type="number" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
+                            <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
 
                             @error('telefone')
                                 <span class="invalid-feedback" role="alert">
@@ -107,6 +107,7 @@
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#formCadastro').submit(function(e){
@@ -154,6 +155,8 @@
                 }
             });
         });
+        $('#telefone').mask('(00) 00000-0000');
+        $('#cpf').mask('000.000.000-00', {reverse: true});
     });
 </script>
 @endsection
