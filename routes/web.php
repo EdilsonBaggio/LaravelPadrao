@@ -41,6 +41,8 @@ Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');
 Route::post('/veiculos', [VeiculosController::class, 'veiculos'])->name('veiculos');
+Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])->name('cadastro-veiculo');
+
 
 // Rota para exibir o formulário de login
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');

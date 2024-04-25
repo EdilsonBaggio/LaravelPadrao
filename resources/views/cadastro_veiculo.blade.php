@@ -21,6 +21,15 @@
                             @enderror <!-- Usada para validação dos dados e exibi uma mensagem de erro associado a um campo espefifico, nesse caso no (placa) -->
                         </div>
 
+                        <div class="form-group mb-3"> <!--  Este é um grupo de formulário bootstrap. -->
+                            <label for="usuario">Usuário:</label> <!-- Este é um rótulo de campo de formulário para o campo "placa". -->
+                            <select class="form-control mt-2" name="usuario" id="usuario">
+                                <option value="">Selecione</option>
+                                @foreach($registros as $registro)
+                                    <option value="{{ $registro->name }}">{{ $registro->name }}</option value="">
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="form-group"> 
                             <label for="modelo">Modelo:</label> 
@@ -84,14 +93,35 @@
                 type: 'POST',
                 data: formData,
                 success: function(response){
-                    // Lidar com a resposta bem-sucedida aqui
                     console.log('Sucesso');
-                    //Limpa o input depois de enviado.
-                    $("#name").val("");
+                    Swal.fire({
+                    title: "Sucesso",
+                    text: "Veículo cadastrado com sucesso",
+                    icon: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ok",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $("#placa").val("");
+                            $("#usuario").val("Selecione").change();
+                            $("#modelo").val("");
+                            $("#cor").val("");
+                            $("#marca").val("");
+                            window.location.href = "{{ url()->previous() }}";
+                        }
+                    });
                 },
                 error: function(xhr, status, error){
-                    // Lidar com erros aqui
                     console.error('Erro');
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "O veículo não foi cadastrado",
+                        showCancelButton: false,
+                        cancelButtonColor: "#d33",
+                    });
                 }
             });
         });

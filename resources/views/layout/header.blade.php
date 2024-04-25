@@ -6,14 +6,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('cadastro')}}">Cadastro</a>
+          <a class="nav-link active" href="{{route('cadastro')}}">Cadastro de Usuários</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{route('login')}}">Login</a>
+          <a class="nav-link" href="{{route('cadastro-veiculo')}}">Cadastro De Veiculos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('listar')}}">Listar usuario</a>
-        </li>      
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{route('login')}}">Login</a>
+        </li>    
     </div>
   </div>
 </nav>

@@ -27,12 +27,12 @@
                     <td>{{ $pessoa->telefone }}</td>
                     <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('usuario', $pessoa->id) }}">
+                        <a class="btn btn-primary" href="{{ route('usuario', $pessoa->id) }}">
                             Editar
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('excluir', $pessoa->id) }}">
+                        <a class="btn btn-warning" href="{{ route('excluir', $pessoa->id) }}">
                             Excluir
                         </a>
                     </td>
