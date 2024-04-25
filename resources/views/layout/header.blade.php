@@ -15,7 +15,7 @@
               <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
+              <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
             </li>
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0 float-end">
