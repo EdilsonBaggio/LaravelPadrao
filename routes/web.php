@@ -5,6 +5,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ListaController;
 use App\Http\Controllers\VeiculosController;
+use App\Http\Controllers\ListarVeiculosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,10 @@ Route::get('/editar/{id}', [PessoaController::class, 'usuario']) // Adicionando 
 Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('cadastro-veiculo');
+
+Route::get('/listar-veiculos', [ListarVeiculosController::class, 'lista'])
+    ->middleware('auth:pessoas')
+    ->name('listar-veiculos');
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
 Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');

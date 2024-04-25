@@ -38,4 +38,18 @@ class VeiculosController extends Controller
 
         return view('cadastro_veiculo', compact('registros'));
     }
+
+    public function excluir($id){
+        // Verifica se o veiculo existe
+        $user = Veiculos::find($id);
+        
+        if($user){
+            // Se o veiculo existe, exclui
+            $user->delete();
+            return redirect()->route('listar-veiculos');
+        } else {
+            // Se o veiculo não existe, retorna uma mensagem de erro
+            return "veiculo não encontrado.";
+        }
+    }
 }
