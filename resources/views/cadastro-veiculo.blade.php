@@ -109,7 +109,7 @@
                             $("#modelo").val("");
                             $("#cor").val("");
                             $("#marca").val("");
-                            window.location.href = "{{ url()->previous() }}";
+                            window.location.href = "{{ route('listar-veiculos') }}";
                         }
                     });
                 },

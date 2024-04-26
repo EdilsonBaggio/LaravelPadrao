@@ -47,6 +47,7 @@
         </div>
     </div>
 </div>
+<livewire:counter /> 
 @endsection
 
 @section('script')

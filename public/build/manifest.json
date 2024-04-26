@@ -4,30 +4,6 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
-  "resources/images/canecas-1.png": {
-    "file": "assets/canecas-1-c9030c67.png",
-    "src": "resources/images/canecas-1.png"
-  },
-  "resources/images/canecas-2.png": {
-    "file": "assets/canecas-2-4c0fd387.png",
-    "src": "resources/images/canecas-2.png"
-  },
-  "resources/images/catuai.mp4": {
-    "file": "assets/catuai-06e1d9c7.mp4",
-    "src": "resources/images/catuai.mp4"
-  },
-  "resources/images/catuai.png": {
-    "file": "assets/catuai-7fe5ef75.png",
-    "src": "resources/images/catuai.png"
-  },
-  "resources/images/decathlon.png": {
-    "file": "assets/decathlon-586452b5.png",
-    "src": "resources/images/decathlon.png"
-  },
-  "resources/images/dell.png": {
-    "file": "assets/dell-96878bca.png",
-    "src": "resources/images/dell.png"
-  },
   "resources/images/favicon/android-chrome-72x72.png": {
     "file": "assets/android-chrome-72x72-8f5be288.png",
     "src": "resources/images/favicon/android-chrome-72x72.png"
@@ -59,70 +35,6 @@
   "resources/images/favicon/site.webmanifest": {
     "file": "assets/site-1d99e1c7.webmanifest",
     "src": "resources/images/favicon/site.webmanifest"
-  },
-  "resources/images/icones/caneca.png": {
-    "file": "assets/caneca-624af14e.png",
-    "src": "resources/images/icones/caneca.png"
-  },
-  "resources/images/icones/catuai-post-logo.png": {
-    "file": "assets/catuai-post-logo-74a1408a.png",
-    "src": "resources/images/icones/catuai-post-logo.png"
-  },
-  "resources/images/icones/erro.png": {
-    "file": "assets/erro-2bd872bc.png",
-    "src": "resources/images/icones/erro.png"
-  },
-  "resources/images/icones/sucesso.png": {
-    "file": "assets/sucesso-20bfbf3d.png",
-    "src": "resources/images/icones/sucesso.png"
-  },
-  "resources/images/oracle.png": {
-    "file": "assets/oracle-764d3c2f.png",
-    "src": "resources/images/oracle.png"
-  },
-  "resources/images/posts/cloud.png": {
-    "file": "assets/cloud-6de01c9f.png",
-    "src": "resources/images/posts/cloud.png"
-  },
-  "resources/images/posts/show.png": {
-    "file": "assets/show-d8459f63.png",
-    "src": "resources/images/posts/show.png"
-  },
-  "resources/images/posts/unimed-click.png": {
-    "file": "assets/unimed-click-ccaf0a90.png",
-    "src": "resources/images/posts/unimed-click.png"
-  },
-  "resources/images/servicos-m.png": {
-    "file": "assets/servicos-m-1bb05cae.png",
-    "src": "resources/images/servicos-m.png"
-  },
-  "resources/images/servicos.png": {
-    "file": "assets/servicos-0580faab.png",
-    "src": "resources/images/servicos.png"
-  },
-  "resources/images/sony.png": {
-    "file": "assets/sony-ec43c45c.png",
-    "src": "resources/images/sony.png"
-  },
-  "resources/images/totvs.png": {
-    "file": "assets/totvs-e3e73ef3.png",
-    "src": "resources/images/totvs.png"
-  },
-  "resources/images/ubs.png": {
-    "file": "assets/ubs-d990082b.png",
-    "src": "resources/images/ubs.png"
-  },
-  "resources/images/unimed.png": {
-    "file": "assets/unimed-afd59c80.png",
-    "src": "resources/images/unimed.png"
-  },
-  "resources/images/universal.png": {
-    "file": "assets/universal-64f3f23f.png",
-    "src": "resources/images/universal.png"
-  },
-  "resources/images/whatsapp.png": {
-    "file": "assets/whatsapp-95545ae8.png",
-    "src": "resources/images/whatsapp.png"
   },
   "resources/js/app.js": {
     "file": "assets/app-f9f1eaaf.js",

@@ -4,6 +4,7 @@
     @include('layout.header')
     <body>
         @yield('content')
+        @livewireScripts
     </body>
     @include('layout.footer')
     @include('layout.scripts')

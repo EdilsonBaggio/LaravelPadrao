@@ -24,7 +24,7 @@ class AuthController extends Controller
             return redirect()->intended('listar-usuario');
         }
 
-        return back()->withErrors(['email' => 'These credentials do not match our records.'])->withInput($request->only('email'));
+        return back()->withErrors(['email' => 'Os dados estão incorretos ou não exite usuário cadastrado.'])->withInput($request->only('email'));
     }
 
     public function logout()
