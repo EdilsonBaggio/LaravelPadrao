@@ -27,6 +27,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Livewire\\Counter' => $baseDir . '/app/Livewire/Counter.php',
     'App\\Mail\\PadraoMail' => $baseDir . '/app/Mail/PadraoMail.php',
     'App\\Models\\Lista' => $baseDir . '/app/Models/Lista.php',
     'App\\Models\\ListarVeiculos' => $baseDir . '/app/Models/ListarVeiculos.php',
