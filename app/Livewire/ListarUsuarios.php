@@ -9,7 +9,8 @@ class ListarUsuarios extends Component
 {   
     public $usuarios;
 
-    public function mount(){
+    public function mount()
+    {
         $this->usuarios = Pessoas::all();
     }
 
