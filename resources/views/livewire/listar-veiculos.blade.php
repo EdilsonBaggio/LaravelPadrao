@@ -27,7 +27,7 @@
                                 <td>{{ $veiculo->cor }}</td>
                                 <td>{{ $veiculo->marca }}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('excluir', $veiculo->id) }}">
+                                    <a class="btn btn-warning" href="{{ route('excluir_veiculo', $veiculo->id) }}">
                                         Excluir
                                     </a>
                                 </td>

@@ -33,7 +33,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('excluir', $pessoa->id) }}">
+                                    <a class="btn btn-warning" href="{{ route('excluir_pessoa', $pessoa->id) }}">
                                         Excluir
                                     </a>
                                 </td>
