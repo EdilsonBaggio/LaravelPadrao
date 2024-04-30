@@ -4,20 +4,20 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Veiculos;
+use Livewire\WithPagination;
 
 class ListarVeiculos extends Component
 {
-    public $veiculos;
-
-    public function mount()
-    {
-        $this->veiculos = Veiculos::all();
-    }
+    use WithPagination;
 
     public function render()
     {
+        // Paginate the query instead of using all()
+        $veiculos = Veiculos::paginate(5);
+
         return view('livewire.listar-veiculos', [
-            'veiculos' => $this->veiculos,
+            'veiculos' => $veiculos,
         ]);
     }
 }
+
