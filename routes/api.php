@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/editar/{id}', [PessoaController::class, 'atualizar'])->name('atualizar');
+Route::post('/pesssoa/editar/{id}', [PessoaController::class, 'atualizar'])->name('atualizar');
+Route::post('/veiculos/editar/{id}', [VeiculosController::class, 'atualizar'])->name('atualizar_veiculos');
 Route::get('/pessoa/editar/{id}', [PessoaController::class, 'excluir'])->name('excluir_pessoa');
 Route::get('/veiculos/editar/{id}', [VeiculosController::class, 'excluir'])->name('excluir_veiculo');

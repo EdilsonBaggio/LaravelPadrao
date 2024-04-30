@@ -26,11 +26,18 @@
                                 <td>{{ $veiculo->modelo }}</td>
                                 <td>{{ $veiculo->cor }}</td>
                                 <td>{{ $veiculo->marca }}</td>
-                                <td>
+
+                            <td>
+                                  <a class="btn btn-primary" href="{{ route('veiculo', $veiculo->id) }}"> 
+                                   Editar 
+                                  </a>
+                            </td>
+
+                            <td>
                                     <a class="btn btn-warning" href="{{ route('excluir_veiculo', $veiculo->id) }}">
                                         Excluir
                                     </a>
-                                </td>
+                            </td>
                             </tr>
                         @endforeach
                     </tbody>
