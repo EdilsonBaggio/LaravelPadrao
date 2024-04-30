@@ -39,6 +39,10 @@ Route::get('/editar/{id}', [PessoaController::class, 'usuario'])
     ->middleware('auth:pessoas')
     ->name('usuario');
 
+Route::get('/editar/{id}', [VeiculosController::class, 'veiculo']) 
+    ->middleware('auth:pessoas')
+    ->name('veiculo');
+
 Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('cadastro-veiculo');
