@@ -41,6 +41,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pagination-links">
+                    {{ $pessoas->links() }}
+                </div>
             </div>
         </div>
     </div>

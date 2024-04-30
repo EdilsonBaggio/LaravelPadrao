@@ -35,6 +35,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pagination-links">
+                    {{ $veiculos->links() }}
+                </div>
             </div>
         </div> 
     </div>
