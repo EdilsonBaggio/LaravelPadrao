@@ -17,6 +17,12 @@ class ListarUsuarios extends Component
 
     use WithPagination;
 
+    public function deleteUsuario($id)
+    {
+        Pessoas::find($id)->delete();
+        session()->flash('message', 'Usuário excluído com sucesso.');
+    }
+
     public function render()
     {
         return view('livewire.listar-usuarios', [

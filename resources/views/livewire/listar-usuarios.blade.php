@@ -1,5 +1,10 @@
 <div>
     <div class="container">
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Cadastros:</h2>      
@@ -33,9 +38,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('excluir_pessoa', $pessoa->id) }}">
+                                    <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
                                         Excluir
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach

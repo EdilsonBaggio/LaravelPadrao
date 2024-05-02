@@ -82,18 +82,18 @@ class PessoaController extends Controller
         return view('editar', compact('user'));
     }
 
-    public function excluir($id){
-        // Verifica se o usuário existe
-        $user = Pessoas::find($id);
+    // public function excluir($id){
+    //     // Verifica se o usuário existe
+    //     $user = Pessoas::find($id);
         
-        if($user){
-            // Se o usuário existe, exclui
-            $user->delete();
-            return redirect()->route('listar');
-        } else {
-            // Se o usuário não existe, retorna uma mensagem de erro
-            return "Usuário não encontrado.";
-        }
-    }
+    //     if($user){
+    //         // Se o usuário existe, exclui
+    //         $user->delete();
+    //         return redirect()->route('listar');
+    //     } else {
+    //         // Se o usuário não existe, retorna uma mensagem de erro
+    //         return "Usuário não encontrado.";
+    //     }
+    // }
 
 }

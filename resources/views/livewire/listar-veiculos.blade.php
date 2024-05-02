@@ -1,5 +1,10 @@
 <div>
     <div class="container">
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Veiculos:</h2>      
@@ -26,18 +31,16 @@
                                 <td>{{ $veiculo->modelo }}</td>
                                 <td>{{ $veiculo->cor }}</td>
                                 <td>{{ $veiculo->marca }}</td>
-
-                            <td>
-                                  <a class="btn btn-primary" href="{{ route('veiculo', $veiculo->id) }}"> 
-                                   Editar 
-                                  </a>
-                            </td>
-
-                            <td>
-                                    <a class="btn btn-warning" href="{{ route('excluir_veiculo', $veiculo->id) }}">
-                                        Excluir
+                                <td>
+                                    <a class="btn btn-primary" href="{{ route('veiculo', $veiculo->id) }}"> 
+                                        Editar 
                                     </a>
-                            </td>
+                                </td>
+                                <td>
+                                    <button wire:click="deleteVeiculo({{ $veiculo->id }})" class="btn btn-warning">
+                                        Excluir
+                                    </button>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

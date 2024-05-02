@@ -21,15 +21,17 @@
                             @enderror <!-- Usada para validação dos dados e exibi uma mensagem de erro associado a um campo espefifico, nesse caso no (placa) -->
                         </div>
 
-                        <div class="form-group mb-3"> <!--  Este é um grupo de formulário bootstrap. -->
-                            <label for="usuario">Usuário:</label> <!-- Este é um rótulo de campo de formulário para o campo "placa". -->
-                            <select class="form-control mt-2" name="usuario" id="usuario">
+                        <div class="form-group mb-3">
+                            <label for="usuario">Usuário:</label>
+                            <select class="form-control mt-2" name="usuario_id" id="usuario"> <!-- Alterado de 'usuario' para 'usuario_id' -->
                                 <option value="">Selecione</option>
                                 @foreach($registros as $registro)
-                                    <option value="{{ $registro->name }}">{{ $registro->name }}</option value="">
+                                    <option value="{{ $registro->id }}">{{ $registro->name }}</option> <!-- Alterado para enviar o ID do usuário -->
                                 @endforeach
                             </select>
                         </div>
+
+                        <input type="hidden" name="usuario" id="nome_usuario" value="">
 
                         <div class="form-group"> 
                             <label for="modelo">Modelo:</label> 
@@ -124,6 +126,11 @@
                     });
                 }
             });
+        });
+
+        $('#usuario').change(function() {
+            var selectedName = $(this).children("option:selected").text(); // Obtém o texto da opção selecionada
+            $('#nome_usuario').val(selectedName); // Atualiza o valor do campo oculto com o nome do usuário selecionado
         });
     });
 </script>

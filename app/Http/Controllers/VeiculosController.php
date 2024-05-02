@@ -13,21 +13,23 @@ class VeiculosController extends Controller
         // Validação dos dados do formulário
         $validatedData = $request->validate([
             'placa' => 'required|string|max:255',
+            'usuario_id' => 'required|exists:pessoas,id',
             'usuario' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
         ]);
- 
+
         // Criar um novo veiculo com os dados validados
-        $user = new Veiculos();
-        $user->usuario = $validatedData['usuario'];
-        $user->placa = $validatedData['placa'];
-        $user->modelo = $validatedData['modelo'];
-        $user->cor = $validatedData['cor'];
-        $user->marca = $validatedData['marca'];
-        $user->save();
- 
+        $veiculo = new Veiculos();
+        $veiculo->usuario_id = $validatedData['usuario_id']; 
+        $veiculo->usuario = $validatedData['usuario'];
+        $veiculo->placa = $validatedData['placa'];
+        $veiculo->modelo = $validatedData['modelo'];
+        $veiculo->cor = $validatedData['cor'];
+        $veiculo->marca = $validatedData['marca'];
+        $veiculo->save();
+
         // Redirecionar após salvar
         return redirect()->back()->with('success', 'Veiculo cadastrado com sucesso!');
     }
@@ -79,17 +81,17 @@ class VeiculosController extends Controller
     }
 
 
-    public function excluir($id){
-        // Verifica se o veiculo existe
-        $user = Veiculos::find($id);
+    // public function excluir($id){
+    //     // Verifica se o veiculo existe
+    //     $user = Veiculos::find($id);
         
-        if($user){
-            // Se o veiculo existe, exclui
-            $user->delete();
-            return redirect()->route('listar-veiculos');
-        } else {
-            // Se o veiculo não existe, retorna uma mensagem de erro
-            return "veiculo não encontrado.";
-        }
-    }
+    //     if($user){
+    //         // Se o veiculo existe, exclui
+    //         $user->delete();
+    //         return redirect()->route('listar-veiculos');
+    //     } else {
+    //         // Se o veiculo não existe, retorna uma mensagem de erro
+    //         return "veiculo não encontrado.";
+    //     }
+    // }
 }

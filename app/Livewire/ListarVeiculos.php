@@ -4,20 +4,20 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Veiculos;
-use Livewire\WithPagination;
 
 class ListarVeiculos extends Component
 {
-    use WithPagination;
+    public function deleteVeiculo($id)
+    {
+        Veiculos::find($id)->delete();
+        session()->flash('message', 'Veículo excluído com sucesso.');
+    }
 
     public function render()
     {
-        // Paginate the query instead of using all()
-        $veiculos = Veiculos::paginate(5);
+        $veiculos = Veiculos::paginate(10);
 
-        return view('livewire.listar-veiculos', [
-            'veiculos' => $veiculos,
-        ]);
+        return view('livewire.listar-veiculos', compact('veiculos'));
     }
 }
 
