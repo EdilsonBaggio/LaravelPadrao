@@ -35,11 +35,11 @@ Route::get('/listar-usuario', [ListaController::class, 'lista'])
     ->middleware('auth:pessoas')
     ->name('listar');
 
-Route::get('/editar/{id}', [PessoaController::class, 'usuario']) 
+Route::get('/usuarios/editar/{id}', [PessoaController::class, 'usuario']) 
     ->middleware('auth:pessoas')
     ->name('usuario');
 
-Route::get('/editar/{id}', [VeiculosController::class, 'veiculo']) 
+Route::get('/veiculos/editar/{id}', [VeiculosController::class, 'veiculo']) 
     ->middleware('auth:pessoas')
     ->name('veiculo');
 
