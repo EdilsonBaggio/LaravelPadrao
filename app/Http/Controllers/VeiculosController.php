@@ -45,6 +45,7 @@ class VeiculosController extends Controller
         // Validação dos dados do formulário
         $validatedData = $request->validate([
             'placa' => 'required|string|max:255',
+            'usuario_id' => 'required|exists:pessoas,id',
             'usuario' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
@@ -52,25 +53,26 @@ class VeiculosController extends Controller
         ]);
     
         try {
-            // Encontrar o usuário pelo ID
+            // Encontrar o veículo pelo ID
             $veiculo = Veiculos::findOrFail($id);
         
-            // Atualizar os dados do usuário
-            $veiculo = new Veiculos();
+            // Atualizar os dados do veículo
             $veiculo->usuario = $validatedData['usuario'];
+            $veiculo->usuario_id = $validatedData['usuario_id']; 
             $veiculo->placa = $validatedData['placa'];
             $veiculo->modelo = $validatedData['modelo'];
             $veiculo->cor = $validatedData['cor'];
             $veiculo->marca = $validatedData['marca'];
             $veiculo->save();
-
+    
             // Redirecionar após salvar
-            return redirect()->route('listar')->with('success', 'Usuário atualizado com sucesso!');
+            return redirect()->route('listar')->with('success', 'Veículo atualizado com sucesso!');
         } catch (\Exception $e) {
             // Se ocorrer algum erro, redirecione de volta com uma mensagem de erro
-            return redirect()->back()->with('error', 'Ocorreu um erro ao atualizar o usuário.');
+            return redirect()->back()->with('error', 'Ocorreu um erro ao atualizar o veículo.');
         }
     }
+
 
     public function veiculo($id){
         // Encontrar o usuário pelo ID
@@ -79,19 +81,4 @@ class VeiculosController extends Controller
         // Aqui você pode retornar a visualização de edição com os dados do usuário
         return view('editar-veiculos', compact('veiculo'));
     }
-
-
-    // public function excluir($id){
-    //     // Verifica se o veiculo existe
-    //     $user = Veiculos::find($id);
-        
-    //     if($user){
-    //         // Se o veiculo existe, exclui
-    //         $user->delete();
-    //         return redirect()->route('listar-veiculos');
-    //     } else {
-    //         // Se o veiculo não existe, retorna uma mensagem de erro
-    //         return "veiculo não encontrado.";
-    //     }
-    // }
 }

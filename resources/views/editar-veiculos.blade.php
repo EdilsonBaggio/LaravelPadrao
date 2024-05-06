@@ -22,6 +22,8 @@
                             @enderror
                         </div>
 
+                        <input type="hidden" name="usuario_id" value="{{ $veiculo->usuario_id }}">
+
                         <div class="form-group">
                             <label for="placa">Placa:</label>
                             <input id="placa" type="text" class="form-control @error('placa') is-invalid @enderror" name="placa" value="{{ $veiculo->placa }}" required>

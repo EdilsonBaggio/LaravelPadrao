@@ -43,7 +43,7 @@ class PessoaController extends Controller
             'verificacao_email' => 'required|string|email|max:255|unique:pessoas,verificacao_email,'.$id,
             'telefone' => 'required|string|max:20',
             'data_nascimento' => 'required|date',
-            'cpf' => 'required|string|max:11|unique:pessoas,cpf,'.$id, // Alterado para max:11 para CPF de tamanho padrão
+            'cpf' => 'required|string|max:14|unique:pessoas,cpf,'.$id, // Alterado para max:11 para CPF de tamanho padrão
             'password' => 'nullable|string', // O campo password é opcional ao editar
         ]);
     
