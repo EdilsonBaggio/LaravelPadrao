@@ -2,8 +2,9 @@
 
 namespace App\Livewire; //define o namespace do componente Livewire
 
-use Livewire\Component;//importa a classe component do Livewire
-use App\Models\Veiculos;// importa o modelo Veiculos do namespace App\Models
+use Livewire\Component;
+use App\Models\Veiculos;
+use Livewire\WithPagination;
 
 class ListarVeiculos extends Component//define a classe ListarVeiculos que estende a classe component do Livewire
 {
@@ -23,4 +24,3 @@ class ListarVeiculos extends Component//define a classe ListarVeiculos que esten
         return view('livewire.listar-veiculos', compact('veiculos'));
     }
 }
-

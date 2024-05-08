@@ -10,6 +10,12 @@
             <div class="card-header titulo">
                 <h2>Tabela de Veiculos:</h2> <!-- Titulo do nome da tabela -->     
             </div>
+            <form wire:submit.prevent="submitForm">
+                <div class="form-group d-flex m-4">
+                    <input type="text" class="form-control me-3" style="width: 300px" wire:model="searchTerm" placeholder="Buscar veículos...">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>        
             <div class="card-body">
                 <table id="tabela-pessoas" class="display table" style="width:100%"><!--Criando uma tabela com id tabela-pessoas, chamando uma classe no css. -->     
                     <thead>
