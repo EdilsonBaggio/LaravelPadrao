@@ -4,23 +4,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header titulo">Editar Usuário:</div>
+                <div class="card-header titulo">Editar Veículo:</div>
 
                 <div class="card-body cadastro">
                     <form id="formEditar" method="POST" action="{{ route('atualizar_veiculos', $veiculo->id) }}"> <!-- Alteração no action para a rota de edição -->
 
                         @csrf
-
-                        <div class="form-group">
-                            <label for="usuario">Usuário:</label>
-                            <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ $veiculo->usuario }}" required autofocus>
-
-                            @error('usuario')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                        <input type="hidden" name="usuario_id" value="{{ $veiculo->usuario_id }}"> <!-- Está criando um campo de entrada oculto em um formulário HTML, cujo valor será o ID do usuário associado a um determinado veículo.-->
 
                         <div class="form-group">
                             <label for="placa">Placa:</label>
@@ -70,7 +60,7 @@
 
                         <div class="form-group mb-0 botoes-cadastro">
                             <button type="submit" class="btn btn-primary"> <!-- Alterado para refletir a ação de edição -->
-                                Editar Usuário
+                                Atualizar
                             </button>
                            
                             <a href="{{ url()->previous() }}" class="btn btn-secondary" > <!-- Retorna à página anterior -->
@@ -87,6 +77,7 @@
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
 <script>
     $(document).ready(function() {
         $('#formEditar').submit(function(e){
@@ -101,8 +92,8 @@
                 success: function(response){
                     console.log('Sucesso');
                     Swal.fire({
-                    title: "Sucesso",
-                    text: "O dados do usuário foram atualizados",
+                    title: "Sucesso!!!",
+                    text: "Os dados do usuário foram atualizados",
                     icon: "success",
                     showCancelButton: false,
                     confirmButtonColor: "#3085d6",
@@ -118,14 +109,15 @@
                     console.error('Erro');
                     Swal.fire({
                         icon: "error",
-                        title: "Oops...",
-                        text: "Os dados não foram atualizados!",
+                        title: "ERRO...",
+                        text: "Os dados não foram atualizados.",
                         showCancelButton: false,
                         cancelButtonColor: "#d33",
                     });
                 }
             });
         });
+        $('#placa').mask('AAA-0000');//Colocando um mask(mascara)para o campo placa
     });
 </script>
 @endsection

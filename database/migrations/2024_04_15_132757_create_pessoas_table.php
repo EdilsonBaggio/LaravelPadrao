@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pessoas', function (Blueprint $table) {
+        Schema::create('pessoas', function (Blueprint $table) {//Cria a tabela pessoas no banco de dados com os seguintes campos:
             $table->id();
             $table->string('name');
             $table->string('email')->unique();

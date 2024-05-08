@@ -91,12 +91,12 @@
 
                         <!-- Restante dos campos do formulário com os valores preenchidos -->
 
-                        <div class="form-group mb-0 botoes-cadastro">
+                        <div class="form-group mb-0 botoes-cadastro"> <!-- Adicionando uma classe para os botões -->
                             <button type="submit" class="btn btn-primary"> <!-- Alterado para refletir a ação de edição -->
                                 Editar Usuário
                             </button>
                            
-                            <a href="{{ url()->previous() }}" class="btn btn-secondary" > <!-- Retorna à página anterior -->
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary" > <!-- Ao apertar no botão cancelar ele retorna à página anterior -->
                                 Cancelar
                             </a>
 
@@ -110,49 +110,63 @@
 @endsection
 
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Importando da biblioteca o link do ajax.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
 <script>
-    $(document).ready(function() {
-        $('#formEditar').submit(function(e){
-            e.preventDefault();
+    $(document).ready(function() { //Aguarda até que todo o HTML do documento tenha sido completamente carregado antes de executar o código dentro dela.
+        $('#formEditar').submit(function(e){//Quando apertar no botao editar o formulário será enviado
+            e.preventDefault();//impede o envio padrão do formulário, que normalmente faria com que a página recarregasse
 
-            var formData = $(this).serialize();
+            var formData = $(this).serialize();//serializa os dados do formulário(converte de ajax para string para facilitar a consulta)
 
-            $.ajax({
+            var email = $("#email").val();//Definindo uma variavel email e pegando os valores que foram preenchidos no formulário
+            var confemail = $("#verificacao_email").val();//Definindo uma variavel confemail e pegando os valores que foram preenchidos no formulário
+ 
+            if(email != confemail){//Se email e confemail forem diferentes 
+                Swal.fire({
+                            icon: "error",
+                            title: "ERRO...",
+                            text: 'Os e-mails não correspondem.',
+                            showCancelButton: false,
+                            cancelButtonColor: "#d33",
+                        });
+                return false; // se o retorno for falso ele para de executar o código 
+            }
+
+            $.ajax({//Se os e-mails corresponderem, ele faz uma soliciação ajax que mostrara uma mensagem 
                 url: $(this).attr('action'),
                 type: 'POST',
                 data: formData,
-                success: function(response){
+                success: function(response){//Se a resposta for bem sucedida mostrara o icone de sucesso e o texto
                     console.log('Sucesso');
                     Swal.fire({
-                    title: "Sucesso",
-                    text: "O dados do usuário foram atualizados",
+                    title: "Sucesso!!!",
+                    text: "Os dados do usuário foram atualizados.",
                     icon: "success",
                     showCancelButton: false,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Ok"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "{{ url()->previous() }}";
+                    }).then((result) => { // Isso indica que uma ação será realizada depois que a solicitação AJAX for concluída com sucesso. 
+                        if (result.isConfirmed) {//Verifica se a solicitação AJAX foi confirmada com sucesso.
+                            window.location.href = "{{ url()->previous() }}";//Após a verificação ele manda automaticamente para a página anterior.
                         }
                     });
                 },
-                error: function(xhr, status, error){
+                error: function(xhr, status, error){//Se a solicitação der erro então retornará mensagem de erro 
                     console.error('Erro');
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: "Os dados não foram atualizados!",
+                        text: "Os dados não foram atualizados!",//mensagem de erro
                         showCancelButton: false,
                         cancelButtonColor: "#d33",
                     });
                 }
             });
         });
-        $('#telefone').mask('(00) 00000-0000');
-        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#telefone').mask('(00) 00000-0000');//Colocando uma mascara para telefone
+        $('#cpf').mask('000.000.000-00', {reverse: true});//Colocando um mask(mascara)para o campo cpf.Reverse:true: indica que a mascara será aplicada da direita para a esquerda 
     });
 </script>
 @endsection
