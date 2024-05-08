@@ -22,12 +22,12 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="usuario">Usuário:</label>
-                            <select class="form-control mt-2" name="usuario_id" id="usuario"> <!-- Alterado de 'usuario' para 'usuario_id' -->
-                                <option value="">Selecione</option>
-                                @foreach($registros as $registro)
-                                    <option value="{{ $registro->id }}">{{ $registro->name }}</option> <!-- Alterado para enviar o ID do usuário -->
-                                @endforeach
+                            <label for="usuario">Usuário:</label><!--Cria o nome usuario para o campo select -->
+                            <select class="form-control mt-2" name="usuario_id" id="usuario"> <!--Alterado de 'usuario' para 'usuario_id' -->
+                                <option value="">Selecione</option><!--Cria uma opção que permite o usuario selecionar o nome que deseja,o value(valor) está vazio pois será preenchido com o nome que o usuário irá selecionar-->
+                                @foreach($registros as $registro) <!--Inicia um loop foreach itera sobre uma coleção de registros chamada $registros,cada registro representa um usuário-->
+                                    <option value="{{ $registro->id }}">{{ $registro->name }}</option> <!--A partir do registro pelo id do banco de dados ele vai pegar o nome das pessoas que estão cadastradas e puxar o nome, aparecendo assim os nomes e o usuariopodendo escolher a opção que deseja-->
+                                @endforeach<!--Finaliza o loop foreach.-->
                             </select>
                         </div>
 
@@ -81,7 +81,8 @@
 </div>
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Importando da biblioteca o link do ajax.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
 <script>
     $(document).ready(function() {
         $('#formCadastro').submit(function(e){
@@ -97,8 +98,8 @@
                 success: function(response){
                     console.log('Sucesso');
                     Swal.fire({
-                    title: "Sucesso",
-                    text: "Veículo cadastrado com sucesso",
+                    title: "Sucesso!!!",
+                    text: "Veículo cadastrado com sucesso.",
                     icon: "success",
                     showCancelButton: false,
                     confirmButtonColor: "#3085d6",
@@ -120,7 +121,7 @@
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: "O veículo não foi cadastrado",
+                        text: "O veículo não foi cadastrado.",
                         showCancelButton: false,
                         cancelButtonColor: "#d33",
                     });
@@ -128,10 +129,11 @@
             });
         });
 
-        $('#usuario').change(function() {
+        $('#usuario').change(function() {//Pegando os Usuarios cadastrados no banco de dados e listando os nomes 
             var selectedName = $(this).children("option:selected").text(); // Obtém o texto da opção selecionada
             $('#nome_usuario').val(selectedName); // Atualiza o valor do campo oculto com o nome do usuário selecionado
         });
+        $('#placa').mask('AAA-0000');//Colocando um mask(mascara)para o campo placa
     });
 </script>
-@endsection
+@endsection 

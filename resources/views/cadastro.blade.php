@@ -106,57 +106,83 @@
 </div>
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Importando da biblioteca o link do ajax.-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script><!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
 <script>
-    $(document).ready(function() {
-        $('#formCadastro').submit(function(e){
+    $(document).ready(function() {//Aguarda o HTML ser completamente carregado antes de executar o código
+        $('#formCadastro').submit(function(e){//Seleciona o formulário com o ID "formCadastro".
             e.preventDefault(); // Evita o comportamento padrão de envio do formulário
 
             // Serialize o formulário para enviar os dados
             var formData = $(this).serialize();
+            var email = $("#email").val();//Definindo uma variavel email e pegando os valores que foram preenchidos no formulário
+            var confemail = $("#verificacao_email").val();//Definindo uma variavel confemail e pegando os valores que foram preenchidos no formulário
+ 
+            if(email != confemail){//Se email e confemail forem diferentes 
+                Swal.fire({
+                            icon: "error",
+                            title: "ERRO...",
+                            text: 'Os e-mails não correspondem.',
+                            showCancelButton: false,
+                            cancelButtonColor: "#d33",
+                        });
+                return false; //Se o retorno for falso ele para de executar o código 
+            }
 
-            $.ajax({
-                url: '{{ route("pessoas") }}',
-                type: 'POST',
+            $.ajax({//Se os e-mails forem iguais ele executa o ajax,retornando a mensagem de sucesso
+                url: '{{ route("pessoas") }}',//define uma url, rota onde será enviado a requisição, sendo enviada para rota pessoas
+                type: 'POST',//metodo Post (Os dados serão enviados para o servidor)
                 data: formData,
-                success: function(response){
-                    console.log('Sucesso');
-                    Swal.fire({
-                    title: "Sucesso",
-                    text: "Usuário cadastrado com sucesso",
+                success: function(response){//Se a mensagem for de sucesso então executara o código de sucesso 
+                    Swal.fire({//Exibi um alerta usando a bibliotec SweetAlert
+                    title: "Sucesso!!!",
+                    text: "Usuário cadastrado com sucesso.",
                     icon: "success",
                     showCancelButton: false,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Ok"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $("#name").val("");
-                            $("#email").val("");
+                    }).then((result) => {//Se o usuário for cadastrado com sucesso então ele limpa os campos
+                        if (result.isConfirmed) {//Se o resultado for confirmado então ele limpa os campos
+                            $("#name").val("");//Limpa o campo Name 
+                            $("#email").val("");//Limpa o campo email
                             $("#verificacao_email").val("");
                             $("#telefone").val("");
                             $("#data_nascimento").val("");
                             $("#cpf").val("");
                             $("#password").val("");
-                            window.location.href = "{{ url()->previous() }}";
+                            window.location.href = "{{ url()->previous() }}";//Após os usuários serem cadastrados ele retorna a página anterior
                         }
                     });
                 },
-                error: function(xhr, status, error){
-                    console.error('Erro');
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "O usuário não foi cadastrado",
-                        showCancelButton: false,
-                        cancelButtonColor: "#d33",
-                    });
+                error: function(xhr, status, error) {//Quando ocorre um erro chama uma função que vai retornar 3 parametros xhr(o objeto XMLHttpRequest), status(o status do erro), error(a descrição do erro)
+                    // Acesse a mensagem de erro específica retornada pelo Laravel
+                    var errorMessage = xhr.responseJSON.message;
+                    var emailErrors = xhr.responseJSON.errors.email;//Cria uma variavel chamada emailErrors, e aparece uma mensagem de erro especifica do campo email,caso ocorra algum erro neste campo ele retorna uma mensagem
+ 
+                    if(emailErrors){//Se o campo emailErrors for verificado e der erro ele exibira uma mensagem de erro.
+                        Swal.fire({//Chama um alerta usando a biblioteca SweetAlert
+                            icon: "error",
+                            title: "Oops...",
+                            text: 'Os e-mails não são iguais',
+                            showCancelButton: false,
+                            cancelButtonColor: "#d33",
+                        });
+                    }else{ //Se der erro ao efetuar o cadastro ele retorna mensagem de erro que não foi possivel cadastrar usuario 
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: 'Não foi possivel efetuar o cadastro.',
+                            showCancelButton: false,
+                            cancelButtonColor: "#d33",
+                        });
+                    }
                 }
             });
         });
-        $('#telefone').mask('(00) 00000-0000');
-        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#telefone').mask('(00) 00000-0000')//Colocando um mask(mascara)para o campo telefone
+        $('#cpf').mask('000.000.000-00', {reverse: true});//Colocando um mask(mascara)para o campo cpf.Reverse:true: indica que a mascara será aplicada da direita para a esquerda 
     });
 </script>
 @endsection
+

@@ -14,7 +14,6 @@ class VeiculosController extends Controller
         $validatedData = $request->validate([
             'placa' => 'required|string|max:255',
             'usuario_id' => 'required|exists:pessoas,id',
-            'usuario' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
@@ -23,7 +22,6 @@ class VeiculosController extends Controller
         // Criar um novo veiculo com os dados validados
         $veiculo = new Veiculos();
         $veiculo->usuario_id = $validatedData['usuario_id']; 
-        $veiculo->usuario = $validatedData['usuario'];
         $veiculo->placa = $validatedData['placa'];
         $veiculo->modelo = $validatedData['modelo'];
         $veiculo->cor = $validatedData['cor'];
@@ -45,7 +43,7 @@ class VeiculosController extends Controller
         // Validação dos dados do formulário
         $validatedData = $request->validate([
             'placa' => 'required|string|max:255',
-            'usuario' => 'required|string|max:255',
+            'usuario_id' => 'required|exists:pessoas,id',
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
@@ -56,8 +54,7 @@ class VeiculosController extends Controller
             $veiculo = Veiculos::findOrFail($id);
         
             // Atualizar os dados do usuário
-            $veiculo = new Veiculos();
-            $veiculo->usuario = $validatedData['usuario'];
+            $veiculo->usuario_id = $validatedData['usuario_id'];
             $veiculo->placa = $validatedData['placa'];
             $veiculo->modelo = $validatedData['modelo'];
             $veiculo->cor = $validatedData['cor'];
@@ -72,14 +69,16 @@ class VeiculosController extends Controller
         }
     }
 
-    public function veiculo($id){
-        // Encontrar o usuário pelo ID
-        $veiculo = Veiculos::findOrFail($id);
+    public function veiculo($id)
+    {
+        // Encontrar o veículo pelo ID com informações adicionais do usuário
+        $veiculo = Veiculos::leftJoin('pessoas', 'pessoas.id', '=', 'veiculos.usuario_id')
+                            ->select('veiculos.*', 'pessoas.name as usuario')
+                            ->findOrFail($id);
         
-        // Aqui você pode retornar a visualização de edição com os dados do usuário
+        // Aqui você pode retornar a visualização de edição com os dados do veículo e do usuário
         return view('editar-veiculos', compact('veiculo'));
     }
-
 
     // public function excluir($id){
     //     // Verifica se o veiculo existe

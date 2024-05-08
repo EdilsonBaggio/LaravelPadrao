@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('listas', function (Blueprint $table) {
+        Schema::create('listas', function (Blueprint $table) {//Cria no banco de dados uma tabela com o nome listas com os seguintes campos:
             $table->id();
             $table->timestamps();
         });
