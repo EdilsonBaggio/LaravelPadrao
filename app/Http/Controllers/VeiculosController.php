@@ -34,7 +34,8 @@ class VeiculosController extends Controller
 
     public function lista()
     {
-        $registros = Lista::all(); // Recuperar todos os registros da tabela "Lista"
+        // Recuperar todos os registros da tabela "Lista" onde o campo "deleted_at" é nulo
+        $registros = Lista::whereNull('deleted_at')->get(); 
 
         return view('cadastro-veiculo', compact('registros'));
     }
@@ -79,18 +80,4 @@ class VeiculosController extends Controller
         // Aqui você pode retornar a visualização de edição com os dados do veículo e do usuário
         return view('editar-veiculos', compact('veiculo'));
     }
-
-    // public function excluir($id){
-    //     // Verifica se o veiculo existe
-    //     $user = Veiculos::find($id);
-        
-    //     if($user){
-    //         // Se o veiculo existe, exclui
-    //         $user->delete();
-    //         return redirect()->route('listar-veiculos');
-    //     } else {
-    //         // Se o veiculo não existe, retorna uma mensagem de erro
-    //         return "veiculo não encontrado.";
-    //     }
-    // }
 }
