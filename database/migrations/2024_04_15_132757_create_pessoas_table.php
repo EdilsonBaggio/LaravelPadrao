@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('cpf')->unique(); // Adicionando o campo CPF e marcando como único
             $table->date('data_nascimento')->nullable(); // Adicionando o campo data de nascimento
             $table->string('password');
+            $table->string('deleted_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

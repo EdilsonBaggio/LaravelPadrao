@@ -17,6 +17,7 @@ class Pessoas extends Authenticatable//Classe pessoas herda todos metodos e prop
         'data_nascimento',
         'cpf',
         'password',
+        'deleted_at'
     ];
 
     protected $hidden = [//hidden especifica que os atributos a seguir devem ser ocultados 

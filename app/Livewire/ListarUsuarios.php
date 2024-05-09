@@ -17,17 +17,23 @@ class ListarUsuarios extends Component//Define a classe listarUsuario como um  c
 
     use WithPagination;//usado para adicionar funcionalidade de paginação ao componente.
 
-    public function deleteUsuario($id) //Defini uma função deleteusuario a partir dp id
+    public function deleteUsuario($id)
     {
-        Pessoas::find($id)->delete();//Exclui o usuário com o ID fornecido.
-        session()->flash('message', 'Usuário excluído com sucesso.');//Se o usuátio for excluido ele exibira uma mensagem de sucesso
+        $usuario = Pessoas::find($id);
+
+        if ($usuario) {
+            $usuario->deleted_at = now(); 
+            $usuario->save();
+            session()->flash('message', 'Usuário marcado como excluído com sucesso.');
+        } else {
+            session()->flash('message', 'Usuário não encontrado.');
+        }
     }
 
-    public function render()//Metodo é chamado para renderizaro componente
+    public function render()
     {
-        return view('livewire.listar-usuarios', [ //retorna a pagina listar-usuarios 
-            'pessoas' => Pessoas::paginate(5),//Pega o nome das pessoas que está no banco de dados e lista na pagina, e só aparecerá 5 pessoas por página, se passar disso os outros usuarios serão redirecionados para outra pagina.
+        return view('livewire.listar-usuarios', [
+            'pessoas' => Pessoas::whereNull('deleted_at')->paginate(5),
         ]);
-    }
-    
+    } 
 }
