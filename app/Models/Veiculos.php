@@ -15,7 +15,8 @@ class Veiculos extends Model// chamando a classe veiculo que esta dentro da mode
         'modelo',
         'cor',
         'marca',
-        'email'
+        'email',
+        'deleted_at'
     ];
 
 }
