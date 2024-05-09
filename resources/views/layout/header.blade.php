@@ -18,7 +18,7 @@
               <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
             </li>
         </ul>
-        <ul class="navbar-nav mb-2 mb-lg-0 float-end">;<!--Usando a classe navbar para aplicar estilos especifcicos do bootstrap,a classe float-end alinha a lista à direita da barra de navegação.-->
+        <ul class="navbar-nav mb-2 mb-lg-0 float-end"><!--Usando a classe navbar para aplicar estilos especifcicos do bootstrap,a classe float-end alinha a lista à direita da barra de navegação.-->
           @if(Auth::check()) <!--Verifica se o usuário está autenticado-->
             <li class="nav-item"><!--Definido um novo item da lista (li).-->
                   <a 
