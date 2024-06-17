@@ -33,17 +33,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="verificacao_email">Confirmar e-mail:</label>
-                            <input id="verificacao_email" type="email" class="form-control @error('verificacao_email') is-invalid @enderror" name="verificacao_email" value="{{ old('verificacao_email') }}" required>
-
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror 
-                        </div>
-
-                        <div class="form-group">
                             <label for="telefone">Telefone:</label>
                             <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autofocus>
 
@@ -79,13 +68,11 @@
                         
                         <div class="form-group">
                             <label for="password">Senha:</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
-
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <input id="password" type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="verificacao_password">Confirme a Senha:</label>
+                            <input id="verificacao_password" type="password" class="form-control" name="verificacao_password" required>
                         </div>
 
                         <div class="form-group mb-0 botoes-cadastro">
@@ -115,14 +102,14 @@
 
             // Serialize o formulário para enviar os dados
             var formData = $(this).serialize();
-            var email = $("#email").val();//Definindo uma variavel email e pegando os valores que foram preenchidos no formulário
-            var confemail = $("#verificacao_email").val();//Definindo uma variavel confemail e pegando os valores que foram preenchidos no formulário
+            var password = $("#password").val();//Definindo uma variavel email e pegando os valores que foram preenchidos no formulário
+            var verificacao_password = $("#verificacao_password").val();//Definindo uma variavel confemail e pegando os valores que foram preenchidos no formulário
  
-            if(email != confemail){//Se email e confemail forem diferentes 
+            if(password != verificacao_password){//Se email e confemail forem diferentes 
                 Swal.fire({
                             icon: "error",
                             title: "ERRO...",
-                            text: 'Os e-mails não correspondem.',
+                            text: 'As senhas não correspondem.',
                             showCancelButton: false,
                             cancelButtonColor: "#d33",
                         });
@@ -151,32 +138,19 @@
                             $("#data_nascimento").val("");
                             $("#cpf").val("");
                             $("#password").val("");
+                            $("#verificacao_password").val("");
                             window.location.href = "{{ url()->previous() }}";//Após os usuários serem cadastrados ele retorna a página anterior
                         }
                     });
                 },
-                error: function(xhr, status, error) {//Quando ocorre um erro chama uma função que vai retornar 3 parametros xhr(o objeto XMLHttpRequest), status(o status do erro), error(a descrição do erro)
-                    // Acesse a mensagem de erro específica retornada pelo Laravel
-                    var errorMessage = xhr.responseJSON.message;
-                    var emailErrors = xhr.responseJSON.errors.email;//Cria uma variavel chamada emailErrors, e aparece uma mensagem de erro especifica do campo email,caso ocorra algum erro neste campo ele retorna uma mensagem
- 
-                    if(emailErrors){//Se o campo emailErrors for verificado e der erro ele exibira uma mensagem de erro.
-                        Swal.fire({//Chama um alerta usando a biblioteca SweetAlert
-                            icon: "error",
-                            title: "Oops...",
-                            text: 'Os e-mails não são iguais',
-                            showCancelButton: false,
-                            cancelButtonColor: "#d33",
-                        });
-                    }else{ //Se der erro ao efetuar o cadastro ele retorna mensagem de erro que não foi possivel cadastrar usuario 
-                        Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: 'Não foi possivel efetuar o cadastro.',
-                            showCancelButton: false,
-                            cancelButtonColor: "#d33",
-                        });
-                    }
+                error: function(xhr, status, error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: 'Não foi possivel efetuar o cadastro.',
+                        showCancelButton: false,
+                        cancelButtonColor: "#d33",
+                    });
                 }
             });
         });

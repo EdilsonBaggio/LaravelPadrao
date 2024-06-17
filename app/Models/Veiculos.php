@@ -10,13 +10,14 @@ class Veiculos extends Model// chamando a classe veiculo que esta dentro da mode
     use HasFactory;//O modelo veiculos está usando o HasFactory que pode ser utilizado para criar instancias 
 
     protected $fillable = [
-        'usuario_id',//atribuiu o nome da coluna no banco de dados como usuario_id
+        'usuario_id',
         'placa',//atribuiu o nome da coluna no banco de dados como placa
         'modelo',
         'cor',
         'marca',
         'email',
-        'deleted_at'
+        'garagem_id',
+        'deleted_at',
     ];
 
 }
