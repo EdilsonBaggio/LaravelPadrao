@@ -12,7 +12,6 @@ class Pessoas extends Authenticatable//Classe pessoas herda todos metodos e prop
     protected $fillable = [//Cria nome das colunas no banco de dados
         'name',//atribuiu o nome da coluna no banco de dados como name
         'email',//atribuiu o nome da coluna no banco de dados como email
-        'verificacao_email',//atribuiu o nome da coluna no banco de dados como verificacao_email
         'telefone',
         'data_nascimento',
         'cpf',

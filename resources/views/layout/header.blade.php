@@ -9,13 +9,19 @@
               <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a><!--Ao clicar na barra com o nome de cadsatro de usuários será redirecionada para a página por meio da rota cadastro-->
             </li>
             <li class="nav-item"><!--É definido como um item da lista (li), com a classe do CSS nav-item -->
-              <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Listar usuários</a> <!--O link(a) tem a calsse do CSS nav-link,que ao clicar na barra de listar usuários será redirecionada para a página por meio da rota listar-->
+              <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> <!--O link(a) tem a calsse do CSS nav-link,que ao clicar na barra de listar usuários será redirecionada para a página por meio da rota listar-->
             </li> 
             <li class="nav-item">
               <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a><!--Ao clicar na barra com o nome de cadsatro de veiculos será redirecionada para a página por meio da rota cadastro-veiculo -->
             </li>
             <li class="nav-item">
               <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastro de Garagem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
             </li>
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0 float-end"><!--Usando a classe navbar para aplicar estilos especifcicos do bootstrap,a classe float-end alinha a lista à direita da barra de navegação.-->
