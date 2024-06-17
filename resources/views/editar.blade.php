@@ -34,17 +34,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="verificacao_email">Confirmar e-mail:</label>
-                            <input id="verificacao_email" type="email" class="form-control @error('verificacao_email') is-invalid @enderror" name="verificacao_email" value="{{ $user->verificacao_email }}" required>
-
-                            @error('verificacao_email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror 
-                        </div>
-
-                        <div class="form-group">
                             <label for="telefone">Telefone:</label>
                             <input id="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" name="telefone" value="{{ $user->telefone }}" required autofocus>
 
@@ -119,21 +108,7 @@
 
             var formData = $(this).serialize();//serializa os dados do formulário(converte de ajax para string para facilitar a consulta)
 
-            var email = $("#email").val();//Definindo uma variavel email e pegando os valores que foram preenchidos no formulário
-            var confemail = $("#verificacao_email").val();//Definindo uma variavel confemail e pegando os valores que foram preenchidos no formulário
- 
-            if(email != confemail){//Se email e confemail forem diferentes 
-                Swal.fire({
-                            icon: "error",
-                            title: "ERRO...",
-                            text: 'Os e-mails não correspondem.',
-                            showCancelButton: false,
-                            cancelButtonColor: "#d33",
-                        });
-                return false; // se o retorno for falso ele para de executar o código 
-            }
-
-            $.ajax({//Se os e-mails corresponderem, ele faz uma soliciação ajax que mostrara uma mensagem 
+            $.ajax({
                 url: $(this).attr('action'),
                 type: 'POST',
                 data: formData,

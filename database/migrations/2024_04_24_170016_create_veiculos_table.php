@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('veiculos', function (Blueprint $table) {//Está criando uma tabela no banco de dados chamada veiculos
-            $table->id();//Adiciona o nome da coluna no banco de dados e defini o seu tipo
-            $table->string('usuario_id')->nullable();//Adicionando nome do usuario_id no banco de dados e nullable() significa que esse campo pode ser nulo,não é obrigatório fornecer um valor para ele.
+            $table->id();//Adiciona o nome da coluna no banco de dados e defini o seu tipo 
+            $table->string('usuario_id')->nullable();
+            $table->string('garagem_id')->nullable();
             $table->string('placa');//Adiciona o nome da coluna no banco de dados como placa
             $table->string('modelo');
             $table->string('cor');

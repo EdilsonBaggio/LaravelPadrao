@@ -13,7 +13,7 @@
             <form wire:submit.prevent="submitForm">
                 <div class="form-group d-flex m-4">
                     <input type="text" class="form-control me-3" style="width: 300px" wire:model="searchTerm" placeholder="Buscar veículos...">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
             </form>                 
             <div class="card-body">
@@ -27,6 +27,7 @@
                             <th>Marca:</th>
                             <th>Nome do usuário:</th><!--Coluna chamada Usuário na página HTML--> 
                             <th>E-mail:</th>
+                            <th>Garagem:<th>
                             <th></th>
                         </tr>
                     </thead>
@@ -40,6 +41,7 @@
                                 <td>{{ $veiculo->marca }}</td>
                                 <td>{{ $veiculo->usuario }}</td><!--Pega o nome usuario que está no banco de dados e mostra na página HTML-->
                                 <td>{{ $veiculo->email_usuario }}</td><!--Acessando campo email da tabela pessoas do banco de dados e exibindo em veiculo-->
+                                <td>{{ $veiculo->nome}}</td> <!--Pegando o nome da tabela de garagems no banco de dados e mostrando na página HTML-->
                                 <td>
                                     <a class="btn btn-primary" href="{{ route('veiculo', $veiculo->id) }}"> <!--Ao clicar no botão editar ele aponta para a rota veiculo passando o id como parametro, levando-o para a página de editar veiculo-->
                                         Editar 
