@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContatoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PessoaController;//Importando o controller de PessoaController para manipular requisições relacionadas as pessoas
@@ -28,3 +29,5 @@ Route::get('/veiculos/editar/{id}', [VeiculosController::class, 'excluir'])->nam
 Route::get('/garagem/editar/{id}', [GaragemController::class, 'excluir'])->name('excluir_garagem');
 //GET:Usado para recuperar dados, ele aparece no link da URL,exemplo:se um usuario busca um chapeu na internet e ele quer enviar um link para um amigo, se estiver usando o metodo get vai entrar direto no chapeu que ele estava vendo.
 //POST:Envia os dados para serem processados,faria a busca porem não estaria na URL
+
+Route::post('/whatsapp', [ContatoController::class, 'enviarOneCode']);
