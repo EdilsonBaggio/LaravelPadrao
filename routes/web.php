@@ -8,6 +8,7 @@ use App\Http\Controllers\VeiculosController;//Importando o controller de Veiculo
 use App\Http\Controllers\ListarVeiculosController;
 use App\Http\Controllers\GaragemController;
 use App\Http\Controllers\ListarGaragemController;
+use App\Http\Controllers\OneCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,8 +74,8 @@ Route::post('/pessoas', [PessoaController::class, 'pessoas'])->name('pessoas');/
 Route::post('/veiculos', [VeiculosController::class, 'veiculos'])->name('veiculos');//Criando uma rota do tipo POST para o metodo veiculos com o nome de veiculos(envio dados de veiculos)
 Route::post('/garagem', [GaragemController::class, 'garagem'])->name('garagem');
 Route::post('/garagem/atualizar/{id}', [GaragemController::class, 'atualizar'])->name('atualizar_garagem');
-
-
+// Rota para enviar a mensagem ao OneCode
+Route::get('/whatsapp', [OneCodeController::class, 'enviarOneCode'])->name('contato.whatsapp');
 
 // Rota para exibir o formulário de login
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');//Está criando uma rota que está chamando um controlador(AuthController) e o metodo(showLoginForm) e atribuindo um nome para essa rota como:login (ESSAS INFORMAÇÕES ESTÁ SENDO PUXADA DA PÁGINA AUTHCONTROLLER)
