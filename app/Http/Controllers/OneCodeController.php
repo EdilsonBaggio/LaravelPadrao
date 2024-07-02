@@ -14,25 +14,21 @@ class OneCodeController extends Controller
     public function enviarOneCode(Request $request)
     {
         $sistemaNome = 'Tiigo';
-        $numeroTelefone = '+5511991680375';
-        $emailUsuario = 'edilson.santos@kasi.com.br';
-        $mensagemSistema = 'Teste envio dados OndeCode';
+        $numeroTelefone = '5511991680375'; // Certifique-se de que este número está no formato correto
+        $mensagemSistema = 'Teste de envio pelo Cafe usado como ponte para o Onecode';
 
         $dadosEnvio = [
-            'body' => [
-                'name' => $sistemaNome,
-                'number' => $numeroTelefone,
-                'email' => $emailUsuario,
-                'mensagem' => $mensagemSistema,
-            ],
+            'to' => $numeroTelefone,
+            'body' => $sistemaNome . "\n\n" . $mensagemSistema,
             'connectionFrom' => 0,
+            'ticketStrategy' => 'create'
         ];
 
         $client_secret = env('ONECODE_CLIENT_SECRET');
 
         try {
             $client = new \GuzzleHttp\Client();
-            $response = $client->request('POST', 'https://api-kasi.onecode.chat/api/contacts/' . $numeroTelefone, [
+            $response = $client->request('POST', 'https://api-kasi.onecode.chat/api/send/' . $numeroTelefone, [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $client_secret,
                     'Content-Type' => 'application/json',
@@ -65,6 +61,7 @@ class OneCodeController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Ocorreu um erro ao enviar a mensagem: ' . $e->getMessage(),
+                'response' => $dadosEnvio
             ], 500);
         }
     }
