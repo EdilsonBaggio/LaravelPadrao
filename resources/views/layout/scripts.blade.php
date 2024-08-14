@@ -19,35 +19,32 @@
     AOS.init();
     $(document).ready(function(){
         $('#formContato').submit(function(e){
-        e.preventDefault(); // Evita o comportamento padrão de envio do formulário
- 
-        // Serialize o formulário para enviar os dados
-        var formData = $(this).serialize();
+            e.preventDefault(); 
 
-        console.log(formData);
- 
-        $.ajax({
-            url: '{{ route("contato.send") }}', // Substitua isso pelo caminho correto do endpoint
-            type: 'POST',
-            data: formData,
-            success: function(response){
-                // Lidar com a resposta bem-sucedida aqui
-                console.log('Resposta do servidor:', response);
-                $('#name').val("");
-                $('#email').val("");
-                $('#fone').val("");
-                $('#date').val("");
-                $('#cpf').val("");
-                $('#password').val("");
-                $('#password_confirmation').val("");
-            },
-            error: function(xhr, status, error){
-                // Lidar com erros aqui
-                console.error('Erro na chamada AJAX:', error);
-                $('#erro').css({'display': 'flex'});
-            }
+            var formData = $(this).serialize();
+
+            console.log(formData);
+    
+            $.ajax({
+                url: '{{ route("contato.send") }}', 
+                type: 'POST',
+                data: formData,
+                success: function(response){
+                    console.log('Resposta do servidor:', response);
+                    $('#name').val("");
+                    $('#email').val("");
+                    $('#fone').val("");
+                    $('#date').val("");
+                    $('#cpf').val("");
+                    $('#password').val("");
+                    $('#password_confirmation').val("");
+                },
+                error: function(xhr, status, error){
+                    console.error('Erro na chamada AJAX:', error);
+                    $('#erro').css({'display': 'flex'});
+                }
+            });
         });
-    });
     });
 </script>
 @yield('script')
