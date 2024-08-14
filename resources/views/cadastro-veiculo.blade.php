@@ -91,14 +91,13 @@
 </div>
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Importando da biblioteca o link do ajax.-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#formCadastro').submit(function(e){
-            e.preventDefault(); // Evita o comportamento padrão de envio do formulário
+            e.preventDefault();
 
-            // Serialize o formulário para enviar os dados
             var formData = $(this).serialize();
 
             $.ajax({
@@ -139,11 +138,11 @@
             });
         });
 
-        $('#usuario').change(function() {//Pegando os Usuarios cadastrados no banco de dados e listando os nomes 
-            var selectedName = $(this).children("option:selected").text(); // Obtém o texto da opção selecionada
-            $('#nome_usuario').val(selectedName); // Atualiza o valor do campo oculto com o nome do usuário selecionado
+        $('#usuario').change(function() {
+            var selectedName = $(this).children("option:selected").text(); 
+            $('#nome_usuario').val(selectedName);
         });
-        $('#placa').mask('AAA-0000');//Colocando um mask(mascara)para o campo placa
+        $('#placa').mask('AAA-0000');
     });
 </script>
 @endsection 

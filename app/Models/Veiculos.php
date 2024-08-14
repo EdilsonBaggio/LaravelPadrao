@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models; // criando o model, nome das colunas no banco de dados(model de Veiculos) 
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Veiculos extends Model// chamando a classe veiculo que esta dentro da model 
+class Veiculos extends Model
 {
-    use HasFactory;//O modelo veiculos está usando o HasFactory que pode ser utilizado para criar instancias 
+    use HasFactory;
 
     protected $fillable = [
         'usuario_id',
-        'placa',//atribuiu o nome da coluna no banco de dados como placa
+        'placa',
         'modelo',
         'cor',
         'marca',

@@ -56,14 +56,13 @@
                             @enderror 
                         </div> 
                         
-                        <!-- Restante dos campos do formulário com os valores preenchidos -->
 
                         <div class="form-group mb-0 botoes-cadastro">
-                            <button type="submit" class="btn btn-primary"> <!-- Alterado para refletir a ação de edição -->
+                            <button type="submit" class="btn btn-primary">
                                 Atualizar
                             </button>
                            
-                            <a href="{{ url()->previous() }}" class="btn btn-secondary" > <!-- Retorna à página anterior -->
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary" >
                                 Cancelar
                             </a>
 
@@ -77,7 +76,7 @@
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <!-- Importando da biblioteca o link do ajax jQuery Mask (mascara).-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#formEditar').submit(function(e){
@@ -117,7 +116,7 @@
                 }
             });
         });
-        $('#placa').mask('AAA-0000');//Colocando um mask(mascara)para o campo placa
+        $('#placa').mask('AAA-0000');
     });
 </script>
 @endsection
