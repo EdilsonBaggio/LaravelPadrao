@@ -74,21 +74,6 @@ table {
   background-color: rgb(187, 189, 197);
   color: rgb(18, 18, 19);
 }
-.card .botoes-cadastro button {
-  background-color: rgb(42, 61, 165);
-}
-.card .botoes-cadastro button:hover {
-  background-color: rgb(187, 189, 197);
-  color: rgb(18, 18, 19);
-}
-
-.titulo {
-  text-align: center;
-  font-size: 33px;
-  background-color: #d1c0c0;
-  font-family: #000000;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .botao-excluir {
   background-color: rgb(204, 17, 17);

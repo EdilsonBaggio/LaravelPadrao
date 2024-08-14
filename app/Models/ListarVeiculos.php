@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListarVeiculos extends Model
 {
-    protected $table = 'veiculos';//Cria a tabela veiculos no banco de dados 
+    protected $table = 'veiculos';
 
 }
