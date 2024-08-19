@@ -4,26 +4,28 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"> 
-              <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> 
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastro de Garagem</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
-            </li>
-        </ul>
+        @if(Auth::check())
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"> 
+                <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> 
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastro de Garagem</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
+              </li>
+          </ul>
+        @endif
         <ul class="navbar-nav mb-2 mb-lg-0 float-end">
           @if(Auth::check())
             <li class="nav-item">
