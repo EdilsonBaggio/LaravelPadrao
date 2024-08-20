@@ -7,10 +7,10 @@
                 <div class="card-header titulo">Editar Veículo:</div>
 
                 <div class="card-body cadastro">
-                    <form id="formEditar" method="POST" action="{{ route('atualizar_veiculos', $veiculo->id) }}"> <!-- Alteração no action para a rota de edição -->
+                    <form id="formEditar" method="POST" action="{{ route('atualizar_veiculos', $veiculo->id) }}">
 
                         @csrf
-                        <input type="hidden" name="usuario_id" value="{{ $veiculo->usuario_id }}"> <!-- Está criando um campo de entrada oculto em um formulário HTML, cujo valor será o ID do usuário associado a um determinado veículo.-->
+                        <input type="hidden" name="usuario_id" value="{{ $veiculo->usuario_id }}">
 
                         <div class="form-group">
                             <label for="placa">Placa:</label>

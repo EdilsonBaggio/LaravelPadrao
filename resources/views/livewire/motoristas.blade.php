@@ -8,7 +8,7 @@
         
         <div class="card">
             <div class="card-header titulo">
-                <h2>Motoristas e suas garagens:</h2> <!-- Titulo do nome da tabela -->     
+                <h2>Motoristas/Garagens:</h2> <!-- Titulo do nome da tabela -->     
             </div>             
             <div class="card-body">
                 <table id="tabela-pessoas" class="display table" style="width:100%">   

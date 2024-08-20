@@ -47,7 +47,7 @@ Route::middleware('auth:pessoas')->group(function(){
 
     Route::get('/listar-usuario', [ListaController::class, 'lista'])->name('listar');
     Route::get('/usuarios/editar/{id}', [PessoaController::class, 'usuario'])->name('usuario');
-    Route::get('/veiculos/editar/{id}', [VeiculosController::class, 'veiculo'])->name('veiculo');
+    Route::get('/veiculos/{id}/editar', [VeiculosController::class, 'veiculo'])->name('veiculo.editar');
     Route::get('/cadastro-garagem', [GaragemController::class, 'lista'])->name('cadastro-garagem');
     Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])->name('cadastro-veiculo');
     Route::get('/listar-veiculos', [ListarVeiculosController::class, 'lista'])->name('listar-veiculos');
