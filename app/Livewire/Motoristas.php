@@ -9,7 +9,7 @@ class Motoristas extends Component
 {
     public function render()
     {
-        $motoristas = ListaMotoristas::paginate(5);
+        $motoristas = ListaMotoristas::whereNull('deleted_at')->paginate(5);
         return view('livewire.motoristas', ['motoristas' => $motoristas]);
     }
 }
