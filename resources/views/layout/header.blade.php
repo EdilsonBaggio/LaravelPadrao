@@ -4,8 +4,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        @if(Auth::check())
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            @if(Auth::check())
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link active">
+                  ( Olá! {{ Auth::user()->name }} ) 
+                </a>
+              </li>
               <li class="nav-item"> 
                 <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
               </li>
@@ -24,26 +29,25 @@
               <li class="nav-item">
                 <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
               </li>
-          </ul>
-        @endif
-        <ul class="navbar-nav mb-2 mb-lg-0 float-end">
-          @if(Auth::check())
-            <li class="nav-item">
-                  <a 
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"> 
-                    Logout
-                  </a>
-    
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
-                      @csrf
-                  </form> 
-              </li>
-          @else
               <li class="nav-item">
-                  <a class="nav-link @if(Route::is('login')) active @endif" aria-current="page" href="{{route('login')}}">Login</a>
+                <a class="nav-link @if(Route::is('motoristas')) active @endif" href="{{route('motoristas')}}">Motoristas/Garegens</a>
               </li>
-          @endif
+              <li class="nav-item">
+                <a class="nav-link"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+          
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+                    @csrf
+                </form> 
+              </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link @if(Route::is('login')) active @endif" aria-current="page" href="{{route('login')}}">Login</a>
+                </li>
+            @endif
       </ul>
     </div>
   </div>

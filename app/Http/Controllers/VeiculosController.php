@@ -73,11 +73,7 @@ class VeiculosController extends Controller
 
     public function veiculo($id)
     {
-        $veiculo = Veiculos::leftJoin('pessoas', 'pessoas.id', '=', 'veiculos.usuario_id')
-        ->leftJoin('garagems', 'garagems.id', '=', )
-        ->select('veiculos.*', 'pessoas.name as usuario') 
-        ->findOrFail($id);
-                                        
+        $veiculo = Veiculos::findOrFail($id);
         return view('editar-veiculos', compact('veiculo'));
-    }  
+    }
 }

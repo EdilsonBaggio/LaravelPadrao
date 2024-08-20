@@ -58,8 +58,6 @@ class GaragemController extends Controller
     {
         $garagem = Garagem::findOrFail($id);
         return view('editar-garagem', compact('garagem'));
-     
-     
     }
 
 }

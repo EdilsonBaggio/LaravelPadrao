@@ -9,6 +9,8 @@ use App\Http\Controllers\ListarVeiculosController;
 use App\Http\Controllers\GaragemController;
 use App\Http\Controllers\ListarGaragemController;
 use App\Http\Controllers\OneCodeController;
+use App\Livewire\Motoristas as LivewireMotoristas;
+use App\Models\Motoristas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,9 +41,13 @@ Route::middleware('auth:pessoas')->group(function(){
         return view('cadastro-garagem');
     })->name('cadastro-garagem');
 
+    Route::get('/motoristas', function () {
+        return view('motoristas');
+    })->name('motoristas');
+
     Route::get('/listar-usuario', [ListaController::class, 'lista'])->name('listar');
     Route::get('/usuarios/editar/{id}', [PessoaController::class, 'usuario'])->name('usuario');
-    Route::get('/veiculos/editar/{id}', [VeiculosController::class, 'veiculo'])->name('veiculo');
+    Route::get('/veiculos/{id}/editar', [VeiculosController::class, 'veiculo'])->name('veiculo.editar');
     Route::get('/cadastro-garagem', [GaragemController::class, 'lista'])->name('cadastro-garagem');
     Route::get('/cadastro-veiculo', [VeiculosController::class, 'lista'])->name('cadastro-veiculo');
     Route::get('/listar-veiculos', [ListarVeiculosController::class, 'lista'])->name('listar-veiculos');
