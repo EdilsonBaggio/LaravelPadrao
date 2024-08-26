@@ -34,8 +34,8 @@ class ListarVeiculos extends Component
     public function render()
     {
         $veiculos = Veiculos::leftJoin('pessoas', 'pessoas.id', '=', 'veiculos.usuario_id') 
-                     ->leftJoin('garagems', 'garagems.id', '=', 'veiculos.garagem_id')
-                     ->select('veiculos.*', 'pessoas.email as email_usuario', 'pessoas.name as usuario','garagems.nome as nome')
+                     ->leftJoin('garagens', 'garagens.id', '=', 'veiculos.garagem_id')
+                     ->select('veiculos.*', 'pessoas.email as email_usuario', 'pessoas.name as usuario','garagens.nome as nome')
                      ->whereNull('veiculos.deleted_at')
                      ->paginate(10);
         return view('livewire.listar-veiculos', compact('veiculos'));

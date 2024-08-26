@@ -11,8 +11,8 @@ class ListarGaragemController extends Controller
 {
     public function lista()
     {
-        $columns = Schema::getColumnListing('garagems');
-        $garagems = ListarGaragem::all();
-        return view('listar-garagem', compact('columns', 'garagems'));
+        $columns = Schema::getColumnListing('garagens');
+        $garagens = ListarGaragem::all();
+        return view('listar-garagem', compact('columns', 'garagens'));
     }
 }
