@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ListarGaragem extends Model
 {
-    protected $table = 'garagems';
+    protected $table = 'garagens';
 }

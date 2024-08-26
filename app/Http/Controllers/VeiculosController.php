@@ -18,7 +18,7 @@ class VeiculosController extends Controller
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
-            'garagem_id' => 'required|exists:garagems,id',
+            'garagem_id' => 'required|exists:garagens,id',
         ]);
  
         $veiculo = new Veiculos();
@@ -51,7 +51,7 @@ class VeiculosController extends Controller
             'modelo' => 'required|string|max:255',
             'cor' => 'required|string|max:255',
             'marca' => 'required|string|max:255',
-            'garagem_id' => 'required|exists:garagems,id',
+            'garagem_id' => 'required|exists:garagens,id',
         ]);
     
         try {
