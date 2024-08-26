@@ -11,12 +11,14 @@
                   ( Olá! {{ Auth::user()->name }} ) 
                 </a>
               </li>
-              <li class="nav-item"> 
-                <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> 
-              </li> 
+              @if(Auth::user()->id == 1)
+                <li class="nav-item"> 
+                  <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro de Usuários</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> 
+                </li> 
+              @endif
               <li class="nav-item">
                 <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
               </li>
@@ -30,7 +32,7 @@
                 <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link @if(Route::is('motoristas')) active @endif" href="{{route('motoristas')}}">Motoristas/Garegens</a>
+                <a class="nav-link @if(Route::is('motoristas')) active @endif" href="{{route('motoristas')}}">Minhas Garegens</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"

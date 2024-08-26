@@ -8,13 +8,12 @@
         
         <div class="card">
             <div class="card-header titulo">
-                <h2>Motoristas/Garagens:</h2> <!-- Titulo do nome da tabela -->     
+                <h2>Garagens:</h2> 
             </div>             
             <div class="card-body">
                 <table id="tabela-pessoas" class="display table" style="width:100%">   
                     <thead>
                         <tr>
-                            <td>ID:</td>
                             <th>Motorista:</th>
                             <th>CPF:</th>
                             <th>Modelo:</th>
@@ -25,7 +24,6 @@
                     <tbody>
                         @foreach($motoristas as $motorista) 
                             <tr>
-                                <td>{{ $motorista->id_motorista }}</td>
                                 <td>{{ $motorista->motorista_nome }}</td> 
                                 <td>{{ $motorista->cpf_motorista }}</td>
                                 <td>{{ $motorista->veiculo_modelo }}</td>
