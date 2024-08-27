@@ -38,9 +38,11 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
-                                        Excluir
-                                    </button>
+                                    @if($pessoa->id != 1)
+                                        <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
+                                            Excluir
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
