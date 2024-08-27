@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pessoas', function (Blueprint $table) {//Cria a tabela pessoas no banco de dados com os seguintes campos:
+        Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('telefone')->nullable(); // Adicionando o campo telefone
-            $table->string('cpf')->unique(); // Adicionando o campo CPF e marcando como único
-            $table->date('data_nascimento')->nullable(); // Adicionando o campo data de nascimento
+            $table->string('telefone')->nullable();
+            $table->string('cpf')->unique(); 
+            $table->string('cnh')->unique();
+            $table->date('data_nascimento')->nullable(); 
             $table->string('password');
             $table->timestamp('deleted_at')->nullable();
             $table->rememberToken();

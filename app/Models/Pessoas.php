@@ -15,6 +15,7 @@ class Pessoas extends Authenticatable
         'telefone',
         'data_nascimento',
         'cpf',
+        'cnh',
         'password',
         'deleted_at'
     ];
