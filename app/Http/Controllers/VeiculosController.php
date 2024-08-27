@@ -40,7 +40,7 @@ class VeiculosController extends Controller
         $veiculos = Veiculos::all();
         $registros = Lista::whereNull('deleted_at')->get(); 
         $id_usuario_logado = Auth::guard('pessoas')->user()->id;
-        $garagens = ListarGaragem::where('usuario_id', $id_usuario_logado)->whereNull('deleted_at')->get();
+        $garagens = ListarGaragem::whereNull('deleted_at')->get();
         return view('cadastro-veiculo', compact('registros','garagens'));
     }
 

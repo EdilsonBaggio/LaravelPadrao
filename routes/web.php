@@ -41,9 +41,9 @@ Route::middleware('auth:pessoas')->group(function(){
         return view('cadastro-garagem');
     })->name('cadastro-garagem');
 
-    Route::get('/motoristas', function () {
-        return view('motoristas');
-    })->name('motoristas');
+    Route::get('/garagens', function () {
+        return view('garagens');
+    })->name('garagens');
 
     Route::get('/listar-usuario', [ListaController::class, 'lista'])->name('listar');
     Route::get('/usuarios/editar/{id}', [PessoaController::class, 'usuario'])->name('usuario');

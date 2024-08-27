@@ -82,4 +82,4 @@ SELECT
 FROM
     `pessoas` `p`
 LEFT JOIN `veiculos` `v` ON `v`.`usuario_id` = `p`.`id`
-LEFT JOIN `garagems` `g` ON `g`.`id` = `v`.`garagem_id`;
+LEFT JOIN `garagens` `g` ON `g`.`id` = `v`.`garagem_id`;
