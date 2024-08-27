@@ -51,6 +51,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+table tr td {
+  text-transform: uppercase;
+}
+table tr td .btn {
+  text-transform: uppercase;
+}
 
 .row {
   -bs-gutter-x: 0rem;
