@@ -74,12 +74,14 @@ ALGORITHM = UNDEFINED VIEW `dados_veiculo_garagem` AS
 SELECT
     `p`.`id` AS `id_motorista`,
     `p`.`name` AS `motorista_nome`,
-    `p`.`cpf` AS `cpf_motorista`,
+    `p`.`cnh` AS `cnh_motorista`,
     `v`.`modelo` AS `veiculo_modelo`,
     `v`.`placa` AS `placa_carro`,
+    `g`.`qtd_vagas` AS `vaga_carro`,
     `g`.`nome` AS `garagem_nome`,
     `v`.`deleted_at` AS `deleted_at`
 FROM
     `pessoas` `p`
 LEFT JOIN `veiculos` `v` ON `v`.`usuario_id` = `p`.`id`
 LEFT JOIN `garagens` `g` ON `g`.`id` = `v`.`garagem_id`;
+

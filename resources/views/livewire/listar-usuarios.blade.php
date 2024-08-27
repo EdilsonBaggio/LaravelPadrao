@@ -17,6 +17,7 @@
                             <th>Nome:</th>
                             <th>E-mail:</th>
                             <th>CPF:</th>
+                            <th>CNH:</th>
                             <th>Telefone:</th>
                             <th>Data de Nascimento:</th>
                             <th></th>
@@ -30,6 +31,7 @@
                                 <td>{{ $pessoa->name }}</td>
                                 <td>{{ $pessoa->email }}</td>
                                 <td>{{ $pessoa->cpf }}</td>
+                                <td>{{ $pessoa->cnh }}</td>
                                 <td>{{ $pessoa->telefone }}</td>
                                 <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td>
                                 <td>
