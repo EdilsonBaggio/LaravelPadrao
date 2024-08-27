@@ -16,11 +16,18 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        
         if (Auth::guard('pessoas')->attempt($credentials)) {
-            return redirect()->intended('listar-usuario');
+            if (Auth::guard('pessoas')->user()->id == 1) { // Use user()->id to get the authenticated user's ID
+                return redirect()->intended('listar-usuario');
+            } else {
+                return redirect()->intended('garagens');
+            }
         }
+        
         return back()->withErrors(['email' => 'Os dados estão incorretos ou não existe usuário cadastrado.'])->withInput($request->only('email'));
     }
+
 
     public function logout()
     {

@@ -64,3 +64,22 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+View de teste para o banco de dados
+
+-- padrao.dados_veiculo_garagem source
+
+CREATE OR REPLACE
+ALGORITHM = UNDEFINED VIEW `dados_veiculo_garagem` AS
+SELECT
+    `p`.`id` AS `id_motorista`,
+    `p`.`name` AS `motorista_nome`,
+    `p`.`cpf` AS `cpf_motorista`,
+    `v`.`modelo` AS `veiculo_modelo`,
+    `v`.`placa` AS `placa_carro`,
+    `g`.`nome` AS `garagem_nome`,
+    `v`.`deleted_at` AS `deleted_at`
+FROM
+    `pessoas` `p`
+LEFT JOIN `veiculos` `v` ON `v`.`usuario_id` = `p`.`id`
+LEFT JOIN `garagens` `g` ON `g`.`id` = `v`.`garagem_id`;

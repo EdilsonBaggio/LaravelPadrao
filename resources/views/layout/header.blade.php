@@ -17,30 +17,31 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Lista usuários</a> 
-                </li> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastro de Garagem</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
+                </li>
+              @endif
+              @if(Auth::user()->id != 1)
+              <li class="nav-item">
+                <a class="nav-link @if(Route::is('garagens')) active @endif" href="{{route('garagens')}}">Minhas Garegens</a>
+              </li>
               @endif
               <li class="nav-item">
-                <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastro de Veiculos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastro de Garagem</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('motoristas')) active @endif" href="{{route('motoristas')}}">Minhas Garegens</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"
+                <a class="nav-link" style="cursor: pointer"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     Logout
                 </a>
-          
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
                     @csrf
                 </form> 
