@@ -31,7 +31,7 @@ class VeiculosController extends Controller
         if ($quantidadeVeiculos >= $capacidadeMaxima) {
             return response()->json([
                 'error' => 'Garagem já está cheia!'
-            ], 422); // Retorna um JSON com status 422 (Unprocessable Entity)
+            ], 422);
         }
 
         // Salva o novo veículo
