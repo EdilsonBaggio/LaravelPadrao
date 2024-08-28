@@ -10,7 +10,7 @@
                 <h2>Tabela de Cadastros:</h2>      
             </div>
             <div class="card-body">
-                <table id="tabela-pessoas" class="display table" style="width:100%">
+                <table id="tabela-usuarios" class="display table responsive" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID:</th>
@@ -56,4 +56,17 @@
             </div>
         </div>
     </div>
+    @push('script')
+    <script>
+        document.addEventListener('livewire:init', () => {
+            let table = $('#tabela-usuarios').DataTable( {
+                responsive: true
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+
+    </script>
+    @endpush
 </div>
