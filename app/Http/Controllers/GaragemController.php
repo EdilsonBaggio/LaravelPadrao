@@ -29,7 +29,7 @@ class GaragemController extends Controller
         $garagem->qtd_vagas = $validatedData['qtd_vagas'];
         $garagem->usuario_id = $validatedData['usuario_id'];
         $garagem->save();
-        return redirect()->back()->with('success', 'Garagem cadastrada com sucesso!');
+        return redirect()->route('listar-garagem')->with('success', 'Garagem cadastrada com sucesso!');
     }
 
     public function atualizar(Request $request, $id)

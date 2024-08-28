@@ -9,13 +9,7 @@
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Garagem:</h2>
-            </div>
-            <form wire:submit.prevent="submitForm">
-                <div class="form-group d-flex m-4">
-                    <input type="text" class="form-control me-3" style="width: 300px" wire:model="searchTerm" placeholder="Buscar Garagem...">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>                 
+            </div>                
             <div class="card-body">
                 <table id="tabela-pessoas" class="display table" style="width:100%">
                     <thead>
