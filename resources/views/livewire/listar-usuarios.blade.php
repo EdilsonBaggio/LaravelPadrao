@@ -21,7 +21,7 @@
                             <th>Telefone:</th>
                             <th>Data de Nascimento:</th>
                             <th></th>
-                            <th></th>
+                            {{-- <th></th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -39,13 +39,13 @@
                                         Editar
                                     </a>
                                 </td>
-                                <td>
-                                    @if($pessoa->id != 1)
+                                {{-- <td>
+                                    @if($pessoa->id == 1)
                                         <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
                                             Excluir
                                         </button>
                                     @endif
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
