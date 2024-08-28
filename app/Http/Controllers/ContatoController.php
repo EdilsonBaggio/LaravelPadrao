@@ -127,7 +127,7 @@ class ContatoController extends Controller
                     'accept' => 'application/json',
                 ],
                 'json' => $dadosEnvio,
-                'allow_redirects' => false, // Evita redirecionamentos automáticos
+                'allow_redirects' => false,
             ]);
 
             $statusCode = $response->getStatusCode();
@@ -148,8 +148,6 @@ class ContatoController extends Controller
                 ], $statusCode);
             }
         } catch (\Exception $e) {
-            // \Log::error('Erro ao enviar mensagem para o OneCode: ' . $e->getMessage());
-
             return response()->json([
                 'status' => 'error',
                 'message' => 'Ocorreu um erro ao enviar a mensagem: ' . $e->getMessage(),
