@@ -52,15 +52,10 @@ class VeiculosController extends Controller
 
     public function lista()
     {
-        $veiculos = Veiculos::all();
-
-        // $veiculos = Veiculos::selectRaw('garagem_id, COUNT(*) as quantidade')
-        // ->groupBy('garagem_id')
-        // ->get();
-
-        $registros = Lista::whereNull('deleted_at')->get(); 
-        $id_usuario_logado = Auth::guard('pessoas')->user()->id;
-        $garagens = ListarGaragem::whereNull('deleted_at')->get();
+        $userId = Auth::user()->id;
+        $veiculos = Veiculos::where('id', $userId)->whereNull('deleted_at')->get();
+        $registros = Lista::where('id', $userId)->whereNull('deleted_at')->get();
+        $garagens = ListarGaragem::where('id', $userId)->whereNull('deleted_at')->get();
         return view('cadastro-veiculo', compact('registros','garagens'));
     }
 
