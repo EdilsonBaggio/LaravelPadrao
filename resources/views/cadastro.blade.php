@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cnh">CHH:</label>
+                            <label for="cnh">CNH:</label>
                             <input id="cnh" type="text" class="form-control @error('cnh') is-invalid @enderror" name="cnh"  value="{{ old('cnh') }}" required autofocus>
 
                             @error('int')
