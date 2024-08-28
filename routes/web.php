@@ -2,15 +2,13 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContatoController;
-use App\Http\Controllers\PessoaController;//Importando o controller de PessoaController
-use App\Http\Controllers\ListaController;//Importando o controller de ListaController
-use App\Http\Controllers\VeiculosController;//Importando o controller de VeiculosController
+use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\ListaController;
+use App\Http\Controllers\VeiculosController;
 use App\Http\Controllers\ListarVeiculosController;
 use App\Http\Controllers\GaragemController;
 use App\Http\Controllers\ListarGaragemController;
 use App\Http\Controllers\OneCodeController;
-use App\Livewire\Motoristas as LivewireMotoristas;
-use App\Models\Motoristas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+
+Route::get('/esqueci', function () {
+    return view('auth.esqueci');
+})->name('esqueci');
 
 Route::middleware('auth:pessoas')->group(function(){
     Route::get('/cadastro-veiculo', function () {
@@ -67,6 +69,7 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 
 // Rota para processar o login
 Route::post('/', [AuthController::class, 'login'])->name('login.post');
+Route::post('/redefinir', [AuthController::class, 'esqueci'])->name('redefinir');
 
 // Rota para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
