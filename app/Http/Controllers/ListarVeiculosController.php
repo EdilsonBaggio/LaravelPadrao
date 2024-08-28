@@ -13,6 +13,4 @@ class ListarVeiculosController extends Controller
         $veiculos = ListarVeiculos::all();
         return view('listar-veiculos', compact('columns', 'veiculos'));
     }
-
-
 }
