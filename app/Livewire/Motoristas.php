@@ -11,7 +11,7 @@ class Motoristas extends Component
     public function render()
     {
         $userId = Auth::user()->id;
-        $motoristas = ListaMotoristas::whereNull('deleted_at')->where('id_motorista', $userId)->paginate(5);
+        $motoristas = ListaMotoristas::where('id_motorista', $userId)->whereNull('deleted_at')->paginate(10);
         return view('livewire.motoristas', ['motoristas' => $motoristas]);
     }
 }
