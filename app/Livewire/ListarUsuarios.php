@@ -25,7 +25,7 @@ class ListarUsuarios extends Component
         if ($usuario) {
             $usuario->deleted_at = now(); 
             $usuario->save();
-
+            
             Veiculos::where('usuario_id', $id)
                     ->update(['deleted_at' => now()]);
 

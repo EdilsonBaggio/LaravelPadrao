@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lista;
-use App\Models\ListarGaragem;
 use App\Models\Garagem;
+use Illuminate\Support\Facades\Auth;
 
 class GaragemController extends Controller
 {
     public function lista()
     {
-        $registros = Lista::whereNull('deleted_at')->get(); 
+        $userId = Auth::user()->id;
+        $registros = Lista::where('id', $userId)->whereNull('deleted_at')->get();
         return view('cadastro-garagem', compact('registros'));
     }
 
