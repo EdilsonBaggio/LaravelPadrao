@@ -33,7 +33,7 @@
               @endif
               @if(Auth::user()->id != 1)
               <li class="nav-item">
-                <a class="nav-link @if(Route::is('garagens')) active @endif" href="{{route('garagens')}}">Minhas Garegens</a>
+                <a class="nav-link @if(Route::is('garagens')) active @endif" href="{{route('garagens')}}">Minhas Garagens</a>
               </li>
               @endif
               <li class="nav-item">

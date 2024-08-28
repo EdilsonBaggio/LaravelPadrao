@@ -67,21 +67,25 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 View de teste para o banco de dados
 
--- padrao.dados_veiculo_garagem source
+-- padrao.dados_veiculo_garagem_v2 source
+
 
 CREATE OR REPLACE
 ALGORITHM = UNDEFINED VIEW `dados_veiculo_garagem` AS
-SELECT
+select
     `p`.`id` AS `id_motorista`,
     `p`.`name` AS `motorista_nome`,
     `p`.`cnh` AS `cnh_motorista`,
     `v`.`modelo` AS `veiculo_modelo`,
+    `v`.`marca` AS `veiculo_marca`,
+    `v`.`cor` AS `veiculo_cor`,
     `v`.`placa` AS `placa_carro`,
     `g`.`qtd_vagas` AS `vaga_carro`,
     `g`.`nome` AS `garagem_nome`,
     `v`.`deleted_at` AS `deleted_at`
-FROM
-    `pessoas` `p`
-LEFT JOIN `veiculos` `v` ON `v`.`usuario_id` = `p`.`id`
-LEFT JOIN `garagens` `g` ON `g`.`id` = `v`.`garagem_id`;
-
+from
+    ((`pessoas` `p`
+left join `veiculos` `v` on
+    ((`v`.`usuario_id` = `p`.`id`)))
+left join `garagens` `g` on
+    ((`g`.`id` = `v`.`garagem_id`)));
