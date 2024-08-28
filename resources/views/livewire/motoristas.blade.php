@@ -17,8 +17,10 @@
                         <th>Motorista:</th>
                         <th>CNH:</th>
                         <th>Modelo:</th>
+                        <th>Marca:</th>
+                        <th>Cor:</th>
                         <th>Garagem:</th>
-                        <th>Vagas:</th>
+                        <th>Limite:</th>
                     </thead>
                     <tbody>
                         @foreach($motoristas as $motorista) 
@@ -27,6 +29,8 @@
                                 <td>{{ $motorista->motorista_nome }}</td> 
                                 <td>{{ $motorista->cnh_motorista }}</td>
                                 <td>{{ $motorista->veiculo_modelo }}</td>
+                                <td>{{ $motorista->veiculo_marca }}</td>
+                                <td>{{ $motorista->veiculo_cor }}</td>
                                 <td>{{ $motorista->garagem_nome }}</td>
                                 <td>{{ $motorista->vaga_carro }}</td>
                             </tr>
