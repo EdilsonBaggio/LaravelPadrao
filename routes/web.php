@@ -29,10 +29,6 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::middleware('auth:pessoas')->group(function(){
-    Route::get('/cadastro', function () {
-        return view('cadastro');
-    })->name('cadastro');
-
     Route::get('/cadastro-veiculo', function () {
         return view('cadastro-veiculo');
     })->name('cadastro-veiculo');
@@ -61,6 +57,11 @@ Route::post('/veiculos', [VeiculosController::class, 'veiculos'])->name('veiculo
 Route::post('/garagem', [GaragemController::class, 'garagem'])->name('garagem');
 Route::post('/garagem/atualizar/{id}', [GaragemController::class, 'atualizar'])->name('atualizar_garagem');
 Route::get('/whatsapp', [OneCodeController::class, 'enviarOneCode'])->name('contato.whatsapp');
+
+
+Route::get('/cadastro', function () {
+    return view('cadastro');
+})->name('cadastro');
 
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 
