@@ -38,9 +38,19 @@
                             <select class="form-control mt-2" name="garagem_id" id="garagem">
                                 <option value="">Selecione</option>
                                 @foreach($garagens as $garagem)
-                                    <option value="{{ $garagem->id }}">{{ $garagem->nome }}</option>>
+                                    <option value="{{ $garagem->id }}">{{ $garagem->nome }} - vagas: {{ $garagem->qtd_vagas}}</option>>
                                 @endforeach
                             </select>
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="marca">Marca:</label> 
+                            <input id="marca" type="text" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" required autofocus> 
+
+                            @error('marca') 
+                                    <strong>{{ $message }}</strong> 
+                                </span>
+                            @enderror 
                         </div>
 
                         <div class="form-group"> 
@@ -58,16 +68,6 @@
                             <input id="cor" type="text" class="form-control @error('cor') is-invalid @enderror" name="cor" value="{{ old('cor') }}" required autofocus> 
 
                             @error('cor') 
-                                    <strong>{{ $message }}</strong> 
-                                </span>
-                            @enderror 
-                        </div>
-
-                        <div class="form-group"> 
-                            <label for="marca">Marca:</label> 
-                            <input id="marca" type="text" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" required autofocus> 
-
-                            @error('marca') 
                                     <strong>{{ $message }}</strong> 
                                 </span>
                             @enderror 
@@ -105,15 +105,14 @@
                 type: 'POST',
                 data: formData,
                 success: function(response){
-                    console.log('Sucesso');
                     Swal.fire({
-                    title: "Sucesso!!!",
-                    text: "Veículo cadastrado com sucesso.",
-                    icon: "success",
-                    showCancelButton: false,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Ok",
+                        title: "Sucesso!!!",
+                        text: response.success,
+                        icon: "success",
+                        showCancelButton: false,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Ok",
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $("#placa").val("");
@@ -126,11 +125,11 @@
                     });
                 },
                 error: function(xhr, status, error){
-                    console.error('Erro');
+                    var errorMessage = xhr.responseJSON?.error || "O veículo não foi cadastrado.";
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: "O veículo não foi cadastrado.",
+                        text: errorMessage,
                         showCancelButton: false,
                         cancelButtonColor: "#d33",
                     });
@@ -142,7 +141,9 @@
             var selectedName = $(this).children("option:selected").text(); 
             $('#nome_usuario').val(selectedName);
         });
+
         $('#placa').mask('AAA-0000');
     });
+
 </script>
 @endsection 
