@@ -29,7 +29,7 @@ class ListarVeiculos extends Component
     {
         $userId = Auth::user()->id;
         $veiculos = Veiculos::leftJoin('pessoas', 'pessoas.id', '=', 'veiculos.usuario_id') 
-            ->leftJoin('garagens', 'garagens.id', '=', 'veiculos.usuario_id')
+            ->leftJoin('garagens', 'garagens.id', '=', 'veiculos.garagem_id')
             ->select('veiculos.*', 'pessoas.email as email_usuario', 'pessoas.name as usuario', 'garagens.nome as nome')
             ->where('veiculos.usuario_id', $userId)
             ->whereNull('veiculos.deleted_at')
