@@ -14,7 +14,7 @@ class ListarGaragemController extends Controller
     {
         $columns = Schema::getColumnListing('garagens');
         $userId = Auth::user()->id;
-        $garagens = ListarGaragem::where('id', $userId)->whereNull('deleted_at')->get();
+        $garagens = ListarGaragem::where('usuario_id', $userId)->whereNull('deleted_at')->get();
         return view('listar-garagem', compact('columns', 'garagens'));
     }
 }
