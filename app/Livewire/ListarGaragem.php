@@ -16,7 +16,7 @@ class ListarGaragem extends Component
     public function mount()
     {
         $userId = Auth::user()->id;
-        $this->garagens = Garagem::where('id', $userId)->whereNull('deleted_at')->get();
+        $this->garagens = Garagem::where('usuario_id', $userId)->whereNull('deleted_at')->get();
     }
 
     use WithPagination;
