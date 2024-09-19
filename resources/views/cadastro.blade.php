@@ -65,6 +65,17 @@
                                 </span>
                             @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label for="cnh">CNH:</label>
+                            <input id="cnh" type="text" class="form-control @error('cnh') is-invalid @enderror" name="cnh"  value="{{ old('cnh') }}" required autofocus>
+
+                            @error('int')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                         
                         <div class="form-group">
                             <label for="password">Senha:</label>
@@ -136,6 +147,7 @@
                             $("#telefone").val("");
                             $("#data_nascimento").val("");
                             $("#cpf").val("");
+                            $("#cnh").val("");
                             $("#password").val("");
                             $("#verificacao_password").val("");
                             window.location.href = "{{ url()->previous() }}";

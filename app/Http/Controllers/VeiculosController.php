@@ -10,6 +10,7 @@ use App\Models\ListarGaragem;
 
 class VeiculosController extends Controller
 {
+
     public function veiculos(Request $request)
     {
         $validatedData = $request->validate([
@@ -20,9 +21,22 @@ class VeiculosController extends Controller
             'marca' => 'required|string|max:255',
             'garagem_id' => 'required|exists:garagens,id',
         ]);
- 
+
+        $garagem = ListarGaragem::find($validatedData['garagem_id']);
+        $capacidadeMaxima = $garagem->qtd_vagas;
+
+        $quantidadeVeiculos = Veiculos::where('garagem_id', $validatedData['garagem_id'])->whereNull('deleted_at')
+                                    ->count();
+                                    
+        if ($quantidadeVeiculos >= $capacidadeMaxima) {
+            return response()->json([
+                'error' => 'Garagem já está cheia!'
+            ], 422);
+        }
+
+        // Salva o novo veículo
         $veiculo = new Veiculos();
-        $veiculo->usuario_id = $validatedData['usuario_id']; 
+        $veiculo->usuario_id = $validatedData['usuario_id'];
         $veiculo->placa = $validatedData['placa'];
         $veiculo->modelo = $validatedData['modelo'];
         $veiculo->cor = $validatedData['cor'];
@@ -30,17 +44,17 @@ class VeiculosController extends Controller
         $veiculo->garagem_id = $validatedData['garagem_id'];
         $veiculo->save();
 
-        return redirect()->back()->with('success', 'Veiculo cadastrado com sucesso!');
+        return response()->json([
+            'success' => 'Veículo cadastrado com sucesso!'
+        ]);
     }
-
 
 
     public function lista()
     {
-        $veiculos = Veiculos::all();
-        $registros = Lista::whereNull('deleted_at')->get(); 
-        $id_usuario_logado = Auth::guard('pessoas')->user()->id;
-        $garagens = ListarGaragem::where('usuario_id', $id_usuario_logado)->whereNull('deleted_at')->get();
+        $userId = Auth::user()->id;
+        $registros = Lista::where('id', $userId)->whereNull('deleted_at')->get();
+        $garagens = ListarGaragem::where('usuario_id', $userId)->whereNull('deleted_at')->get();
         return view('cadastro-veiculo', compact('registros','garagens'));
     }
 

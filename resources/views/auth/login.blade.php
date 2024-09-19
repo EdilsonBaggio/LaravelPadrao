@@ -37,6 +37,10 @@
                      </button>
                   </div>
                </form>
+               <br>
+               <a href="{{ route('esqueci') }}" rel="noopener noreferrer">
+                  Esqueci a senha!
+               </a>
             </div>
          </div>
       </div>

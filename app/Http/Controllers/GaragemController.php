@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lista;
-use App\Models\ListarGaragem;
 use App\Models\Garagem;
+use Illuminate\Support\Facades\Auth;
 
 class GaragemController extends Controller
 {
     public function lista()
     {
-        $registros = Lista::whereNull('deleted_at')->get(); 
+        $userId = Auth::user()->id;
+        $registros = Lista::where('id', $userId)->whereNull('deleted_at')->get();
         return view('cadastro-garagem', compact('registros'));
     }
 
@@ -29,7 +30,7 @@ class GaragemController extends Controller
         $garagem->qtd_vagas = $validatedData['qtd_vagas'];
         $garagem->usuario_id = $validatedData['usuario_id'];
         $garagem->save();
-        return redirect()->back()->with('success', 'Garagem cadastrada com sucesso!');
+        return redirect()->route('listar-garagem')->with('success', 'Garagem cadastrada com sucesso!');
     }
 
     public function atualizar(Request $request, $id)

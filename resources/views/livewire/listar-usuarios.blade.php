@@ -10,17 +10,18 @@
                 <h2>Tabela de Cadastros:</h2>      
             </div>
             <div class="card-body">
-                <table id="tabela-pessoas" class="display table" style="width:100%">
+                <table id="tabela-usuarios" class="display table responsive" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID:</th>
                             <th>Nome:</th>
                             <th>E-mail:</th>
                             <th>CPF:</th>
+                            <th>CNH:</th>
                             <th>Telefone:</th>
                             <th>Data de Nascimento:</th>
                             <th></th>
-                            <th></th>
+                            {{-- <th></th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                                 <td>{{ $pessoa->name }}</td>
                                 <td>{{ $pessoa->email }}</td>
                                 <td>{{ $pessoa->cpf }}</td>
+                                <td>{{ $pessoa->cnh }}</td>
                                 <td>{{ $pessoa->telefone }}</td>
                                 <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td>
                                 <td>
@@ -37,11 +39,13 @@
                                         Editar
                                     </a>
                                 </td>
-                                <td>
-                                    <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
-                                        Excluir
-                                    </button>
-                                </td>
+                                {{-- <td>
+                                    @if($pessoa->id == 1)
+                                        <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
+                                            Excluir
+                                        </button>
+                                    @endif
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -52,4 +56,17 @@
             </div>
         </div>
     </div>
+    @push('script')
+    <script>
+        document.addEventListener('livewire:init', () => {
+            let table = $('#tabela-usuarios').DataTable( {
+                responsive: true
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+
+    </script>
+    @endpush
 </div>

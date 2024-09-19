@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Pessoas;
 use App\Models\Veiculos;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 class ListarUsuarios extends Component
 {   
@@ -13,7 +14,9 @@ class ListarUsuarios extends Component
 
     public function mount()
     {
-        $this->usuarios = Pessoas::all();
+
+        $userId = Auth::user()->id;
+        $this->usuarios = Pessoas::where('id', $userId)->whereNull('deleted_at')->get();
     }
 
     use WithPagination;
@@ -25,7 +28,7 @@ class ListarUsuarios extends Component
         if ($usuario) {
             $usuario->deleted_at = now(); 
             $usuario->save();
-
+            
             Veiculos::where('usuario_id', $id)
                     ->update(['deleted_at' => now()]);
 
@@ -37,8 +40,9 @@ class ListarUsuarios extends Component
 
     public function render()
     {
+        $userId = Auth::user()->id;
         return view('livewire.listar-usuarios', [
-            'pessoas' => Pessoas::whereNull('deleted_at')->paginate(10),
+            'pessoas' => Pessoas::where('id', $userId)->whereNull('deleted_at')->paginate(10),
         ]);
     } 
 }

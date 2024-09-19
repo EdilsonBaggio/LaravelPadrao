@@ -9,15 +9,9 @@
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Veiculos:</h2>
-            </div>
-            <form wire:submit.prevent="submitForm">
-                <div class="form-group d-flex m-4">
-                    <input type="text" class="form-control me-3" style="width: 300px" wire:model="searchTerm" placeholder="Buscar veículos...">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>                 
+            </div>     
             <div class="card-body">
-                <table id="tabela-pessoas" class="display table" style="width:100%">
+                <table id="tabela-beiculos" class="display table responsive" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID:</th>
@@ -25,7 +19,7 @@
                             <th>Modelo:</th>
                             <th>Cor:</th>
                             <th>Marca:</th>
-                            <th>Nome do usuário:</th>
+                            <th>Motorista:</th>
                             <th>E-mail:</th>
                             <th>Garagem:<th>
                             <th></th>
@@ -62,4 +56,18 @@
             </div>
         </div> 
     </div>
+
+    @push('script')
+    <script>
+        document.addEventListener('livewire:init', () => {
+            let table = $('#tabela-beiculos').DataTable( {
+                responsive: true
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+
+    </script>
+    @endpush
 </div>

@@ -9,6 +9,8 @@ class Garagem extends Model
 {
     use HasFactory;
 
+    protected $table = 'garagens';
+
     protected $fillable = [
         'nome',
         'qtd_vagas',

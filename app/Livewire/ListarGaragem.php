@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Garagem;
 use App\Models\Veiculos;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 
 class ListarGaragem extends Component
@@ -14,7 +15,8 @@ class ListarGaragem extends Component
 
     public function mount()
     {
-        $this->garagens = Garagem::whereNull('deleted_at')->get();
+        $userId = Auth::user()->id;
+        $this->garagens = Garagem::where('usuario_id', $userId)->whereNull('deleted_at')->get();
     }
 
     use WithPagination;

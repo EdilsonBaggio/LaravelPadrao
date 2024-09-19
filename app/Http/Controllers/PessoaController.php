@@ -15,6 +15,7 @@ class PessoaController extends Controller
             'telefone' => 'required|string|max:20',
             'data_nascimento' => 'required|date',
             'cpf' => 'required|string|max:14|unique:pessoas',
+            'cnh' => 'required|string|max:11|unique:pessoas',
             'password' => 'required|string',
         ]);
 
@@ -24,6 +25,7 @@ class PessoaController extends Controller
         $user->telefone = $validatedData['telefone'];
         $user->data_nascimento = $validatedData['data_nascimento'];
         $user->cpf = $validatedData['cpf'];
+        $user->cnh = $validatedData['cnh'];
         $user->password = bcrypt($validatedData['password']);
         $user->save();
         return redirect()->back()->with('success', 'Usuário cadastrado com sucesso!');
@@ -36,6 +38,7 @@ class PessoaController extends Controller
             'telefone' => 'required|string|max:20',
             'data_nascimento' => 'required|date',
             'cpf' => 'required|string|max:14|unique:pessoas,cpf,'.$id,
+            'cnh' => 'required|string|max:11|unique:pessoas,cnh,'.$id,
             'password' => 'nullable|string', 
         ]);
     
@@ -48,7 +51,7 @@ class PessoaController extends Controller
             $user->telefone = $validatedData['telefone'];
             $user->data_nascimento = $validatedData['data_nascimento'];
             $user->cpf = $validatedData['cpf'];
-        
+            $user->cnh = $validatedData['cnh'];
             if(isset($validatedData['password'])){
                 $user->password = bcrypt($validatedData['password']);
             }

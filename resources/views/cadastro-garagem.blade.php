@@ -93,7 +93,7 @@
                     });
                 },
                 error: function(xhr, status, error){
-                    console.error('Erro');
+                    console.error(error);
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",

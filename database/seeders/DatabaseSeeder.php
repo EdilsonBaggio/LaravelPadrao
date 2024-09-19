@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'web@kasi.com.br',
             'password' => Hash::make('mudar123!'),
-            'cpf' => '00000000000', // Defina um CPF válido ou de teste
+            'cpf' => '00000000000',
+            'cnh' => '00000000000',
         ]);
     }
 }

@@ -9,20 +9,14 @@
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Garagem:</h2>
-            </div>
-            <form wire:submit.prevent="submitForm">
-                <div class="form-group d-flex m-4">
-                    <input type="text" class="form-control me-3" style="width: 300px" wire:model="searchTerm" placeholder="Buscar Garagem...">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>                 
+            </div>                
             <div class="card-body">
-                <table id="tabela-pessoas" class="display table" style="width:100%">
+                <table id="tabela-pessoas" class="display table responsive" style="width:100%">
                     <thead>
                         <tr>    
                             <th>ID:</th>   
                             <th>Nome da Garagem:</th> 
-                            <th>Quantidade de Carros:</th>
+                            <th>Vagas:</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -33,13 +27,9 @@
                                 <td>{{ $garagem->nome }}</td>
                                 <td>{{ $garagem->qtd_vagas}}</td>
                                 <td>
-                                
-                                <td>
-                                <a class="btn btn-primary" href="{{ route('garagem.editar', $garagem->id) }}">
+                                    <a class="btn btn-primary" href="{{ route('garagem.editar', $garagem->id) }}">
                                         Editar 
                                     </a>
-                                </td>
-                                <td>
                                     <button wire:click="deleteGaragem({{ $garagem->id }})" class="btn btn-warning">
                                         Excluir
                                     </button>
@@ -52,4 +42,17 @@
             </div>
         </div> 
     </div>
+    @push('script')
+    <script>
+        document.addEventListener('livewire:init', () => {
+            let table = $('#tabela-pessoas').DataTable( {
+                responsive: true
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+
+    </script>
+    @endpush
 </div>

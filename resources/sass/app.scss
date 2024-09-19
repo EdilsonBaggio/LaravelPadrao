@@ -62,7 +62,14 @@ q:before, q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
- 
+    tr{
+        td{
+            text-transform: uppercase;
+            .btn{
+                text-transform: uppercase;
+            }
+        }
+    }
 }
 .row{
     -bs-gutter-x: 0rem;
