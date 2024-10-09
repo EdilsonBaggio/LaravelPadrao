@@ -76,3 +76,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/redefinir/{token}', function ($token) {
+    return view('auth.resetar', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
