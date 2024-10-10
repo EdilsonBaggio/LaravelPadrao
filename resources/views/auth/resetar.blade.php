@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
+                <div class="card-header titulo">Resetar senha:</div> 
                 <div class="card-body contant-login-form">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
