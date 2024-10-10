@@ -58,7 +58,7 @@ class AuthController extends Controller
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|min:8',
         ]);
 
         $status = Password::reset(
@@ -66,14 +66,13 @@ class AuthController extends Controller
             function ($user, $password) {
                 // Acessando o modelo Pessoa em vez do modelo User
                 $pessoa = Pessoas::where('email', $user->email)->first();
-                dd($pessoa);
 
                 if ($pessoa) {
                     // Atualizando a senha da pessoa
                     $pessoa->forceFill([
                         'password' => Hash::make($password)
                     ])->setRememberToken(Str::random(60));
-
+                    
                     $pessoa->save();
 
                     event(new PasswordReset($pessoa));
