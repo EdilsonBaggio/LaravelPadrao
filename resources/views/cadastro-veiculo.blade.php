@@ -11,14 +11,23 @@
                         @csrf
 
                         <div class="form-group"> 
+                            <label for="marca">Marca:</label> 
+                            <input id="marca" type="text" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" required autofocus> 
+                        </div>
+
+                        <div class="form-group"> 
+                            <label for="modelo">Modelo:</label> 
+                            <input id="modelo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="modelo" value="{{ old('modelo') }}" required autofocus> 
+                        </div>
+
+                        <div class="form-group"> 
                             <label for="placa">Placa:</label>
                             <input id="placa" type="text" class="form-control @error('placa') is-invalid @enderror" name="placa" value="{{ old('placa') }}" required autofocus> 
+                        </div>
 
-                            @error('placa')
-                                <span class="invalid-feedback" role="alert"> 
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <div class="form-group"> 
+                            <label for="cor">Cor:</label> 
+                            <input id="cor" type="text" class="form-control @error('cor') is-invalid @enderror" name="cor" value="{{ old('cor') }}" required autofocus> 
                         </div>
 
                         <div class="form-group mb-3">
@@ -41,36 +50,6 @@
                                     <option value="{{ $garagem->id }}">{{ $garagem->nome }} - vagas: {{ $garagem->qtd_vagas}}</option>>
                                 @endforeach
                             </select>
-                        </div>
-
-                        <div class="form-group"> 
-                            <label for="marca">Marca:</label> 
-                            <input id="marca" type="text" class="form-control @error('marca') is-invalid @enderror" name="marca" value="{{ old('marca') }}" required autofocus> 
-
-                            @error('marca') 
-                                    <strong>{{ $message }}</strong> 
-                                </span>
-                            @enderror 
-                        </div>
-
-                        <div class="form-group"> 
-                            <label for="modelo">Modelo:</label> 
-                            <input id="modelo" type="text" class="form-control @error('modelo') is-invalid @enderror" name="modelo" value="{{ old('modelo') }}" required autofocus> 
-
-                            @error('modelo') 
-                                    <strong>{{ $message }}</strong> 
-                                </span>
-                            @enderror 
-                        </div>
-
-                        <div class="form-group"> 
-                            <label for="cor">Cor:</label> 
-                            <input id="cor" type="text" class="form-control @error('cor') is-invalid @enderror" name="cor" value="{{ old('cor') }}" required autofocus> 
-
-                            @error('cor') 
-                                    <strong>{{ $message }}</strong> 
-                                </span>
-                            @enderror 
                         </div>
 
                         <div class="form-group mb-0 botoes-cadastro">
