@@ -3,9 +3,6 @@
         <div class="card">
             <div class="card-header titulo d-flex justify-content-between">
                 <h2>Garagens:</h2> 
-                <div class="total-vagas">
-                    Vagas ocupadas: {{ $vagas }}
-                </div>
             </div>             
             <div class="card-body">
                 <table id="tabela-garagens" class="display table responsive" style="width:100%">
@@ -17,6 +14,7 @@
                         <th>Marca:</th>
                         <th>Cor:</th>
                         <th>Garagem:</th>
+                        <th>Vagas disponiveis</th>
                     </thead>
                     <tbody>
                         @foreach($motoristas as $motorista) 
@@ -28,6 +26,7 @@
                                 <td>{{ $motorista->veiculo_marca }}</td>
                                 <td>{{ $motorista->veiculo_cor }}</td>
                                 <td>{{ $motorista->garagem_nome }}</td>
+                                <td>{{ $motorista->vagas_disponiveis }} de {{ $motorista->vagas_totais_garagem }}</td>
                             </tr>
                         @endforeach
                     </tbody>
