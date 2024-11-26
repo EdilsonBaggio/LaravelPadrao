@@ -83,8 +83,8 @@ select
     `g`.`qtd_vagas` AS `vagas_totais_garagem`,
     `g`.`nome` AS `garagem_nome`,
     `v`.`deleted_at` AS `deleted_at`,
-    (`g`.`qtd_vagas` - ifnull(count(`v`.`id`), 0)) AS `vagas_disponiveis`,
-    ifnull(count(`v`.`id`), 0) AS `carros_quantidade`
+    (`g`.`qtd_vagas` - ifnull((select count(`v_sub`.`id`) from `veiculos` `v_sub` where ((`v_sub`.`garagem_id` = `g`.`id`) and (`v_sub`.`deleted_at` is null))), 0)) AS `vagas_disponiveis`,
+    ifnull((select count(`v_sub`.`id`) from `veiculos` `v_sub` where ((`v_sub`.`garagem_id` = `g`.`id`) and (`v_sub`.`deleted_at` is null))), 0) AS `carros_quantidade`
 from
     ((`pessoas` `p`
 left join `veiculos` `v` on
@@ -92,8 +92,4 @@ left join `veiculos` `v` on
 left join `garagens` `g` on
     ((`g`.`id` = `v`.`garagem_id`)))
 where
-    (`v`.`deleted_at` is null)
-group by
-    `g`.`id`,
-    `p`.`id`,
-    `v`.`id`;
+    (`v`.`deleted_at` is null);
