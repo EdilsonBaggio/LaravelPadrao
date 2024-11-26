@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Motoristas as ListaMotoristas;
+use App\Models\ListarGaragem;
 use Illuminate\Support\Facades\Auth;
 
 class Motoristas extends Component
@@ -12,10 +13,6 @@ class Motoristas extends Component
     {
         $userId = Auth::user()->id;
         $motoristas = ListaMotoristas::where('id_motorista', $userId)->whereNull('deleted_at')->paginate(10);
-        $vagas = ListaMotoristas::where('id_motorista', $userId)
-            ->whereNull('deleted_at')
-            ->sum('carros_quantidade');
-        // return view('livewire.motoristas', ['motoristas' => $motoristas]);
-        return view('livewire.motoristas', compact('motoristas', 'vagas'));
+        return view('livewire.motoristas', compact('motoristas'));
     }
 }
