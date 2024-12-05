@@ -9,6 +9,7 @@ use App\Http\Controllers\ListarVeiculosController;
 use App\Http\Controllers\GaragemController;
 use App\Http\Controllers\ListarGaragemController;
 use App\Http\Controllers\OneCodeController;
+use App\Http\Controllers\StripePagamentoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,3 +83,9 @@ Route::get('/redefinir/{token}', function ($token) {
 })->middleware('guest')->name('password.reset');
 
 Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
+
+Route::get('/stripe/iniciar-pagamento', [StripePagamentoController::class, 'iniciarPagamento'])->name('stripe.iniciar');
+Route::post('/stripe/processar-pagamento', [StripePagamentoController::class, 'processarPagamento'])->name('stripe.processar');
+Route::get('/stripe/sucesso', [StripePagamentoController::class, 'pagamentoSucesso'])->name('stripe.sucesso');
+Route::get('/stripe/cancelamento', [StripePagamentoController::class, 'pagamentoCancelado'])->name('stripe.cancelamento');
+
