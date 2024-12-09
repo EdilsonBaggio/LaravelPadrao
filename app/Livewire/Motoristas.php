@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Motoristas as ListaMotoristas;
-use App\Models\ListarGaragem;
 use Illuminate\Support\Facades\Auth;
 
 class Motoristas extends Component
