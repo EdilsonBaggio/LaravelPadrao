@@ -11,8 +11,7 @@ class ListarVeiculosController extends Controller
     public function lista()
     {
         $userId = Auth::user()->id;
-        $columns = Schema::getColumnListing('veiculos');
         $veiculos = ListarVeiculos::where('usuario_id', $userId)->whereNull('deleted_at')->get();
-        return view('listar-veiculos', compact('columns', 'veiculos'));
+        return view('listar-veiculos', compact('veiculos'));
     }
 }
