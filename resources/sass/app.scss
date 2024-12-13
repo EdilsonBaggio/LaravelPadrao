@@ -121,3 +121,18 @@ table {
         color: rgb(18, 18, 19);
     }
 }
+
+.content-home{
+    @media screen and (max-width:500px) {
+        .row{
+            display: grid;
+            .col-2{
+                width: 100%;
+            }
+        }
+    }
+    .botoes-home{
+        width: 200px;
+        margin: 0 auto;
+    }
+}
