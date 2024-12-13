@@ -47,6 +47,7 @@ class VeiculosController extends Controller
         return response()->json([
             'success' => 'Veículo cadastrado com sucesso!'
         ]);
+
     }
 
 

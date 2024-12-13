@@ -7,7 +7,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             @if(Auth::check())
               <li class="nav-item">
-                <a href="javascript:void(0)" class="nav-link active">
+                <a href="{{route('home')}}" class="nav-link active">
                   ( Olá! {{ Auth::user()->name }} ) 
                 </a>
               </li>
