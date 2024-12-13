@@ -101,4 +101,17 @@ table tr td .btn {
   color: rgb(18, 18, 19);
 }
 
+@media screen and (max-width: 500px) {
+  .content-home .row {
+    display: grid;
+  }
+  .content-home .row .col-2 {
+    width: 100%;
+  }
+}
+.content-home .botoes-home {
+  width: 200px;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=app.css.map */
