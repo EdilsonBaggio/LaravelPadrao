@@ -11,34 +11,36 @@
                   ( Olá! {{ Auth::user()->name }} ) 
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Meus dados</a> 
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastrar Garagem</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastrar Veiculos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link @if(Route::is('garagens')) active @endif" href="{{route('garagens')}}">Minhas Garagens</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="cursor: pointer"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
-                    @csrf
-                </form> 
-              </li>
+              @if(!Route::is('home'))
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Meus dados</a> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('cadastro-garagem')) active @endif" href="{{route('cadastro-garagem')}}">Cadastrar Garagem</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar-garagem')) active @endif" href="{{route('listar-garagem')}}">Lista de Garagem</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('cadastro-veiculo')) active @endif" href="{{route('cadastro-veiculo')}}">Cadastrar Veiculos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('listar-veiculos')) active @endif" href="{{route('listar-veiculos')}}">Lista de Veiculos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if(Route::is('garagens')) active @endif" href="{{route('garagens')}}">Minhas Garagens</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+                      @csrf
+                  </form> 
+                </li>
+              @endif
             @else
                 <li class="nav-item"> 
                   <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro</a>
