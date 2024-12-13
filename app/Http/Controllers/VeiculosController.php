@@ -50,7 +50,6 @@ class VeiculosController extends Controller
 
     }
 
-
     public function lista()
     {
         $userId = Auth::user()->id;

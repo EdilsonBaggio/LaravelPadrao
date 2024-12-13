@@ -111,7 +111,10 @@ table tr td .btn {
 }
 .content-home .botoes-home {
   width: 200px;
+  border-radius: 10px;
   margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=app.css.map */

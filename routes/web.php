@@ -61,16 +61,13 @@ Route::post('/garagem', [GaragemController::class, 'garagem'])->name('garagem');
 Route::post('/garagem/atualizar/{id}', [GaragemController::class, 'atualizar'])->name('atualizar_garagem');
 Route::get('/whatsapp', [OneCodeController::class, 'enviarOneCode'])->name('contato.whatsapp');
 
-
 Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-// Rota para processar o login
 Route::post('/', [AuthController::class, 'login'])->name('login.post');
 Route::post('/redefinir', [AuthController::class, 'esqueci'])->name('redefinir');
 
-// Rota para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
