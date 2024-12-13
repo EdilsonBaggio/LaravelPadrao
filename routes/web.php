@@ -22,10 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
 Route::get('/esqueci', function () {
     return view('auth.esqueci');
 })->name('esqueci');
@@ -51,6 +47,10 @@ Route::middleware('auth:pessoas')->group(function(){
     Route::get('/listar-veiculos', [ListarVeiculosController::class, 'lista'])->name('listar-veiculos');
     Route::get('/listar-garagem', [ListarGaragemController::class, 'lista'])->name('listar-garagem');
     Route::get('/garagem/{id}/editar', [GaragemController::class, 'editar'])->name('garagem.editar');
+
+    Route::get('/', function () {
+        return view('home');
+    })->name('home');
 });
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');
@@ -65,16 +65,14 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
-
 // Rota para processar o login
 Route::post('/', [AuthController::class, 'login'])->name('login.post');
 Route::post('/redefinir', [AuthController::class, 'esqueci'])->name('redefinir');
 
 // Rota para logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/', [AuthController::class, 'login'])->name('login.post');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/redefinir/{token}', function ($token) {

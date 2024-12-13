@@ -22,7 +22,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         
         if (Auth::guard('pessoas')->attempt($credentials)) {
-            if (Auth::guard('pessoas')->user()->id == 1) { // Use user()->id to get the authenticated user's ID
+            if (Auth::guard('pessoas')->user()->id == 1) { 
                 return redirect()->intended('listar-usuario');
             } else {
                 return redirect()->intended('garagens');
