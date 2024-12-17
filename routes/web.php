@@ -40,7 +40,7 @@ Route::middleware('auth:pessoas')->group(function(){
         return view('garagens');
     })->name('garagens');
 
-    Route::get('/listar-usuario', [ListaController::class, 'lista'])->name('listar');
+    Route::get('/', [ListaController::class, 'lista'])->name('listar');
     Route::get('/usuarios/editar/{id}', [PessoaController::class, 'usuario'])->name('usuario');
     Route::get('/veiculos/{id}/editar', [VeiculosController::class, 'veiculo'])->name('veiculo.editar');
     Route::get('/cadastro-garagem', [GaragemController::class, 'lista'])->name('cadastro-garagem');
@@ -49,9 +49,9 @@ Route::middleware('auth:pessoas')->group(function(){
     Route::get('/listar-garagem', [ListarGaragemController::class, 'lista'])->name('listar-garagem');
     Route::get('/garagem/{id}/editar', [GaragemController::class, 'editar'])->name('garagem.editar');
 
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
+    // Route::get('/', function () {
+    //     return view('home');
+    // })->name('home');
 });
 
 Route::post('/send', [ContatoController::class, 'send'])->name('contato.send');

@@ -7,11 +7,11 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           @if(Auth::check())
             <li class="nav-item">
-              <a href="{{route('home')}}" class="nav-link active">
+              <a href="{{route('listar')}}" class="nav-link active">
                 ( Olá! {{ Auth::user()->name }} ) 
               </a>
             </li>
-            @if(!Route::is('home'))
+            {{-- @if(!Route::is('home'))
               <li class="nav-item">
                 <a class="nav-link @if(Route::is('listar')) active @endif" href="{{route('listar')}}">Meus dados</a> 
               </li>
@@ -40,7 +40,7 @@
                     @csrf
                 </form> 
               </li>
-            @endif
+            @endif --}}
           @else
               <li class="nav-item"> 
                 <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro</a>
@@ -53,3 +53,37 @@
     </div>
   </div>
 </nav>
+@if(Auth::check())
+  <div class="row gx-0 mt-5 justify-content-center content-home">
+    <div class="col-sm-2 text-center">
+        <a href="{{ route('listar') }}">
+            <div class="botoes-home p-4 border" @if(Route::is('listar')) style="background: #574b4b; color: #fff;" @endif>Meus dados</div>
+        </a>
+    </div>
+    <div class="col-2 text-center">
+        <a href="{{route('cadastro-garagem')}}">
+            <div class="botoes-home p-4 border" @if(Route::is('cadastro-garagem')) style="background: #574b4b; color: #fff;" @endif>Cadastrar Garagem</div>
+        </a>
+    </div>
+    <div class="col-2 text-center">
+        <a href="{{route('listar-garagem')}}">
+            <div class="botoes-home p-4 border" @if(Route::is('listar-garagem')) style="background: #574b4b; color: #fff;" @endif>Listar Garagens</div>
+        </a>
+    </div>
+    <div class="col-2 text-center">
+        <a href="{{route('cadastro-veiculo')}}">
+            <div class="botoes-home p-4 border" @if(Route::is('cadastro-veiculo')) style="background: #574b4b; color: #fff;" @endif>Cadastrar Veiculos</div>
+        </a>
+    </div>
+    <div class="col-2 text-center">
+        <a style="cursor: pointer"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <div class="botoes-home p-4 border">Sair</div>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+            @csrf
+        </form> 
+    </div>
+  </div>
+@endif
