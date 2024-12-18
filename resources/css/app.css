@@ -105,6 +105,10 @@ table tr td .btn {
   color: rgb(18, 18, 19);
 }
 
+.content-home {
+  display: flex;
+  justify-content: space-between;
+}
 .content-home .botoes-home {
   width: 200px;
   border-radius: 10px;
