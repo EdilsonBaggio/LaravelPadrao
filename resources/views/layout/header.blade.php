@@ -75,6 +75,11 @@
         </a>
     </div>
     <div class="col-sm-2 text-center">
+      <a href="{{route('listar-veiculos')}}">
+          <div class="botoes-home p-4 border" @if(Route::is('listar-veiculos')) style="background: #574b4b; color: #fff;" @endif>Veiculos</div>
+      </a>
+  </div>
+    <div class="col-sm-2 text-center">
         <a style="cursor: pointer"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
