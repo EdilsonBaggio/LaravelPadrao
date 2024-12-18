@@ -127,6 +127,8 @@ table {
 }
 
 .content-home{
+    display: flex;
+    justify-content: space-between;
     .botoes-home{
         width: 200px;
         border-radius: 10px;

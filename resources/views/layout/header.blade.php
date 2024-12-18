@@ -54,7 +54,8 @@
   </div>
 </nav>
 @if(Auth::check())
-  <div class="row gx-0 mt-5 justify-content-center content-home">
+<div class="container">
+  <div class="row gx-0 mt-5 content-home">
     <div class="col-sm-2 text-center">
         <a href="{{ route('listar') }}">
             <div class="botoes-home p-4 border" @if(Route::is('listar')) style="background: #574b4b; color: #fff;" @endif>Meus dados</div>
@@ -86,4 +87,5 @@
         </form> 
     </div>
   </div>
+</div>
 @endif
