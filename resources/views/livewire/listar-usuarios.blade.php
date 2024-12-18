@@ -6,67 +6,30 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header titulo">
-                <h2>Tabela de Cadastros:</h2>      
-            </div>
             <div class="card-body">
-                <table id="tabela-usuarios" class="display table responsive" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>ID:</th>
-                            <th>Nome:</th>
-                            <th>E-mail:</th>
-                            <th>CPF:</th>
-                            <th>CNH:</th>
-                            <th>Telefone:</th>
-                            <th>Data de Nascimento:</th>
-                            <th></th>
-                            {{-- <th></th> --}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pessoas as $pessoa)
-                            <tr>
-                                <td>{{ $pessoa->id }}</td>
-                                <td>{{ $pessoa->name }}</td>
-                                <td>{{ $pessoa->email }}</td>
-                                <td>{{ $pessoa->cpf }}</td>
-                                <td>{{ $pessoa->cnh }}</td>
-                                <td>{{ $pessoa->telefone }}</td>
-                                <td>{{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</td>
-                                <td>
-                                    <a class="btn btn-primary" href="{{ route('usuario', $pessoa->id) }}">
-                                        Editar
-                                    </a>
-                                </td>
-                                {{-- <td>
-                                    @if($pessoa->id == 1)
-                                        <button wire:click="deleteUsuario({{ $pessoa->id }})" class="btn btn-warning">
-                                            Excluir
-                                        </button>
-                                    @endif
-                                </td> --}}
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="pagination-links">
-                    {{ $pessoas->links() }}
-                </div>
+                @foreach($pessoas as $pessoa)
+                    <div class="mb-2">Nome: {{ $pessoa->name }}</div>
+                    <div class="mb-2">E-mail: {{ $pessoa->email }}</div>
+                    <div class="mb-2">CPF: {{ $pessoa->cpf }}</div>
+                    <div class="mb-2">CNH: {{ $pessoa->cnh }}</div>
+                    <div class="mb-2">Telefone: {{ $pessoa->telefone }}</div>
+                    <div class="mb-2">Data de nascimento: {{ \Carbon\Carbon::parse($pessoa->data_nascimento)->format('d/m/Y') }}</div>
+                    <div class="mb-2">
+                        <a class="btn btn-primary" href="{{ route('usuario', $pessoa->id) }}">
+                            Atualizar os dados
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
     @push('script')
     <script>
         document.addEventListener('livewire:init', () => {
-            let table = $('#tabela-usuarios').DataTable( {
-                responsive: true
-            });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
         });
-
     </script>
     @endpush
 </div>
