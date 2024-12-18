@@ -40,10 +40,10 @@
               </form> 
             </li>
           @else
-              <li class="nav-item mobile"> 
+              <li class="nav-item"> 
                 <a class="nav-link @if(Route::is('cadastro')) active @endif" href="{{route('cadastro')}}">Cadastro</a>
               </li>
-              <li class="nav-item mobile">
+              <li class="nav-item">
                   <a class="nav-link @if(Route::is('login')) active @endif" aria-current="page" href="{{route('login')}}">Login</a>
               </li>
           @endif
