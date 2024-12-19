@@ -83,7 +83,7 @@
         <a style="cursor: pointer"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-            <div class="botoes-home p-4 border">Sair</div>
+            <div class="botoes-home p-4 border"><i class="bi bi-door-closed"></i> Sair</div>
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
             @csrf
