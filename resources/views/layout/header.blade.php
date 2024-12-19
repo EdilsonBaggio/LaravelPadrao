@@ -8,7 +8,7 @@
           @if(Auth::check())
             <li class="nav-item text-center">
               <a href="{{route('listar')}}" class="nav-link active">
-                ( Olá! {{ Auth::user()->name }} ) 
+                ( <i class="bi bi-person-circle"></i> Olá! {{ Auth::user()->name }} ) 
               </a>
             </li>
             <li class="nav-item mobile">
