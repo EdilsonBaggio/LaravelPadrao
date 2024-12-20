@@ -78,9 +78,10 @@ table tr td .btn {
 }
 
 .card {
-  border-color: black;
-  border-width: 4px;
-  margin-top: 100px;
+  border-color: #FFFFFF;
+  border-width: 6px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .card .cadastro .form-group input {
   background-color: rgb(229, 236, 231);

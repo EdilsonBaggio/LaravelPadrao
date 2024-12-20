@@ -90,9 +90,10 @@ table {
     }
 }
 .card{
-    border-color: black;
-    border-width: 4px;
-    margin-top: 100px;
+    border-color: $branco;
+    border-width: 6px;
+    margin-top: 50px;
+    margin-bottom: 50px;
  
     .cadastro{
         .form-group{
