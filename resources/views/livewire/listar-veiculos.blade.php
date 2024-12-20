@@ -1,11 +1,5 @@
 <div>
     <div class="container">
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
-        
         <div class="card">
             <div class="card-header titulo">
                 <h2>Tabela de Veiculos:</h2>
